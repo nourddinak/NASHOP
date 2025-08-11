@@ -1603,6 +1603,47 @@ body.overflow-hidden {
     animation: typing 1s steps(40, end), blink-caret .75s step-end infinite;
 }
 
+/* --- Intro Animation --- */
+#animation-curtain {
+    transition: opacity 0.5s ease-in-out;
+}
+
+.intro-hidden {
+    opacity: 0;
+}
+
+.intro-fade-in {
+    animation: intro-fade-in 1s ease-in-out forwards;
+}
+
+@keyframes intro-fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.intro-slide-up {
+    transform: translateY(20px);
+    animation: intro-slide-up 1s ease-in-out forwards;
+}
+
+@keyframes intro-slide-up {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.glitch {
+  animation: glitch-animation 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+@keyframes glitch-animation {
+  0% { transform: translate(0); }
+  20% { transform: translate(-3px, 3px); }
+  40% { transform: translate(-3px, -3px); }
+  60% { transform: translate(3px, 3px); }
+  80% { transform: translate(3px, -3px); }
+  to { transform: translate(0); }
+}
+
 @keyframes typing {
     from { width: 0 }
     to { width: 100% }
