@@ -3151,11 +3151,22 @@
         </div>
     </div>
 
+    <!-- Roadmap Modal -->
+    <div id="roadmap-modal" class="hidden fixed inset-0 bg-black bg-opacity-80 backdrop-blur-sm z-50 p-4 flex items-center justify-center">
+        <div class="modal-content relative max-w-2xl w-full bg-gray-900/80 border-2 border-lime-500/50 rounded-lg shadow-lg shadow-lime-500/20 p-8">
+            <button id="close-roadmap-modal" class="absolute top-4 right-4 text-lime-400 hover:text-white text-2xl">&times;</button>
+            <h3 id="modal-title" class="text-3xl font-bold mb-4 bg-gradient-to-r from-lime-400 to-sky-400 text-transparent bg-clip-text"></h3>
+            <div id="modal-body" class="text-gray-300">
+            </div>
+        </div>
+    </div>
+
     <!-- QR Code Helper Functions -->
     <script defer src="js/interactive-grid.js"></script>
     <script defer src="js/terminal.js"></script>
     <script defer src="js/digital-rain.js"></script>
     <script defer src="js/intro-animation.js"></script>
+    <script defer src="js/roadmap.js"></script>
     <script>
         // Helper functions for QR code generation and management
         async function generateQRForMobile() {
