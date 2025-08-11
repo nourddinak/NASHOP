@@ -1603,6 +1603,24 @@ body.overflow-hidden {
     animation: typing 1s steps(40, end), blink-caret .75s step-end infinite;
 }
 
+/* --- Technology Stack Section --- */
+.tech-card {
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, border-color 0.3s ease-in-out;
+}
+
+.tech-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.tech-card .tech-icon {
+    transition: transform 0.3s ease-in-out;
+}
+
+.tech-card:hover .tech-icon {
+    transform: scale(1.1);
+}
+
 /* --- Intro Animation --- */
 #animation-curtain {
     transition: opacity 0.5s ease-in-out;
