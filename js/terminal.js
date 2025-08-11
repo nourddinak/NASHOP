@@ -9,12 +9,10 @@ document.addEventListener('DOMContentLoaded', () => {
             "> Connection established.",
             "> Bypassing security protocols...",
             "> Access granted.",
-            "> Welcome, agent.",
+            "> Welcome.",
             "> ",
             "> System Status: All systems nominal.",
-            "> $DAN Token Value: $0.42 (▲ 5.2%)",
-            "> ",
-            "> Type 'help' for a list of commands.",
+            "> "
         ];
 
         function typeWriter(text, i, p) {
