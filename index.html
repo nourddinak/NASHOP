@@ -92,6 +92,7 @@
 
             <!-- Minimal Grid Pattern -->
             <div class="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2240%22%20height%3D%2240%22%20viewBox%3D%220%200%2040%2040%22%3E%3Cpath%20d%3D%22M0%200h40v1H0zM0%2040h40v1H0zM0%200v40h1V0zm40%200v40h1V0z%22%20fill%3D%22%23ffffff%22%20fill-opacity%3D%220.02%22%20%2F%3E%3C%2Fsvg%3E')] opacity-30"></div>
+            <canvas id="interactive-grid" class="absolute inset-0 w-full h-full"></canvas>
         </div>
 
         <!-- Enhanced Main Content with Modern Animations -->
@@ -2917,6 +2918,13 @@
                     <a href="terms.html" class="text-gray-500 hover:text-gray-300 transition-colors duration-200">Terms of Service</a>
                     <a href="faq.html" class="text-gray-500 hover:text-gray-300 transition-colors duration-200">FAQ</a>
                     <a href="#top" class="text-gray-500 hover:text-gray-300 transition-colors duration-200 inline-flex items-center">Back to Top <i class="fas fa-arrow-up text-[10px] ml-1.5" aria-hidden="true"></i></a>
+                    <div class="flex items-center space-x-2">
+                        <span class="text-xs text-gray-400">Performance Mode</span>
+                        <label for="perf-toggle" class="relative inline-flex items-center cursor-pointer">
+                            <input type="checkbox" id="perf-toggle" class="sr-only peer">
+                            <div class="w-9 h-5 bg-gray-600 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-green-600"></div>
+                        </label>
+                    </div>
                 </nav>
             </div>
         </div>
@@ -3064,6 +3072,7 @@
     </script>
 
     <!-- QR Code Helper Functions -->
+    <script defer src="js/interactive-grid.js"></script>
     <script>
         // Helper functions for QR code generation and management
         async function generateQRForMobile() {
