@@ -3071,8 +3071,24 @@
         window.QR_SERVER_URL = 'https://nourddinak.pythonanywhere.com';
     </script>
 
+    <!-- Terminal Window -->
+    <div id="terminal" class="hidden fixed inset-0 bg-black bg-opacity-80 backdrop-blur-sm z-50 p-4 font-mono text-lime-400">
+        <div class="w-full h-full border-2 border-lime-400/50 rounded-lg shadow-lg shadow-lime-500/20 p-4 flex flex-col">
+            <div class="flex-shrink-0 flex items-center justify-between pb-2 border-b border-lime-400/50">
+                <h3 class="text-lg font-bold">NASHOP_TERMINAL_v1.0</h3>
+                <button id="close-terminal" class="text-lime-400 hover:text-white">&times;</button>
+            </div>
+            <div id="terminal-content" class="flex-grow mt-4 overflow-y-auto">
+                <p>&gt; Connecting to NASHOP servers...</p>
+                <p>&gt; Connection established.</p>
+                <p>&gt; Welcome, user.</p>
+            </div>
+        </div>
+    </div>
+
     <!-- QR Code Helper Functions -->
     <script defer src="js/interactive-grid.js"></script>
+    <script defer src="js/terminal.js"></script>
     <script>
         // Helper functions for QR code generation and management
         async function generateQRForMobile() {

@@ -1582,6 +1582,37 @@ body.overflow-hidden {
     will-change: auto !important;
 }
 
+/* --- Terminal Window Styles --- */
+#terminal {
+    transition: opacity 0.3s ease-in-out, backdrop-filter 0.3s ease-in-out;
+}
+
+#terminal.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+#terminal-content p {
+    margin-bottom: 0.5rem;
+}
+
+#terminal-content .typewriter {
+    border-right: .15em solid lime;
+    white-space: nowrap;
+    overflow: hidden;
+    animation: typing 1s steps(40, end), blink-caret .75s step-end infinite;
+}
+
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: lime; }
+}
+
 /* ===== Text Animation System ===== */
 
 /* Fade-in Effects with Staggered Timing */
