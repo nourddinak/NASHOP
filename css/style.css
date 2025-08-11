@@ -1621,6 +1621,28 @@ body.overflow-hidden {
     transform: scale(1.1);
 }
 
+/* --- Roadmap Modal Styles --- */
+#roadmap-modal {
+    transition: opacity 0.3s ease-in-out, backdrop-filter 0.3s ease-in-out;
+}
+
+#roadmap-modal.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+#roadmap-modal .modal-content {
+    transition: transform 0.3s ease-in-out;
+}
+
+#roadmap-modal.hidden .modal-content {
+    transform: scale(0.95);
+}
+
+.roadmap-item {
+    cursor: pointer;
+}
+
 /* --- Intro Animation --- */
 #animation-curtain {
     transition: opacity 0.5s ease-in-out;
