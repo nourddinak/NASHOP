@@ -1,0 +1,27 @@
+{
+  "name": "app",
+  "version": "1.0.0",
+  "description": "��#\u0000 \u0000N\u0000A\u0000S\u0000H\u0000O\u0000P\u0000\r\u0000 \u0000# NASHOP",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build:css": "./node_modules/.bin/tailwindcss -i css/input.css -o css/output.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nourddinak/NASHOP.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/nourddinak/NASHOP/issues"
+  },
+  "homepage": "https://github.com/nourddinak/NASHOP#readme",
+  "devDependencies": {
+    "autoprefixer": "^10.4.21",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^4.1.11"
+  }
+}

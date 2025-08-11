@@ -414,6 +414,9 @@ document.addEventListener('DOMContentLoaded', (event) => {
     // --- Whitelist Video Modal Functionality ---
     setupWhitelistVideoModal();
 
+    // --- Performance Mode Toggle ---
+    setupPerformanceModeToggle();
+
     // --- Modern Animation System ---
     setupModernAnimations();
 
@@ -1654,4 +1657,27 @@ function copyToClipboard(text, buttonElement) {
            buttonElement.classList.remove('bg-red-600', 'border-red-500');
        }, 2500); // 2.5 seconds
    });
+}
+
+// --- Performance Mode Toggle ---
+function setupPerformanceModeToggle() {
+    const perfToggle = document.getElementById('perf-toggle');
+    if (perfToggle) {
+        perfToggle.addEventListener('change', (e) => {
+            if (e.target.checked) {
+                document.body.classList.add('performance-mode');
+                // Optional: Save user preference in localStorage
+                localStorage.setItem('performanceMode', 'enabled');
+            } else {
+                document.body.classList.remove('performance-mode');
+                localStorage.setItem('performanceMode', 'disabled');
+            }
+        });
+
+        // Check for saved preference on page load
+        if (localStorage.getItem('performanceMode') === 'enabled') {
+            perfToggle.checked = true;
+            document.body.classList.add('performance-mode');
+        }
+    }
 }
