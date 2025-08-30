@@ -87,7 +87,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
     }
 
     // --- Intersection Observer for Scroll Animations ---
-    const animatedElements = document.querySelectorAll('.animate-fade-in-up');
+    const animatedElements = document.querySelectorAll('.animate-fade-in-up, .feature-card'); // Add feature-card to the query
     if ('IntersectionObserver' in window) {
          const observer = new IntersectionObserver((entries, observerInstance) => {
              entries.forEach(entry => {
@@ -101,15 +101,8 @@ document.addEventListener('DOMContentLoaded', (event) => {
          });
 
          animatedElements.forEach(el => {
-            // Immediately animate header elements if they have the class
-            if (el.closest('header#top')) {
-                // Skip immediate animation for header if we want scroll nav to work correctly from start
-                // el.classList.add('is-visible');
-                observer.observe(el); // Observe header too
-            } else {
-                // Observe elements outside the header
-                observer.observe(el);
-            }
+            // Observe all animated elements
+            observer.observe(el);
          });
      } else {
          // Fallback for browsers that don't support IntersectionObserver
