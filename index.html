@@ -36,7 +36,6 @@
 
     <!-- Link to your custom CSS file -->
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/scroller.css">
 
     <!-- External Scripts (defer loading) -->
     <script defer src="https://unpkg.com/lucide@latest"></script>
@@ -1797,31 +1796,140 @@
             <div class="flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-6">
                 <!-- Left Side: Enhanced Interactive Phone Interface -->
                 <div class="w-full lg:w-1/2 relative perspective-1000" data-animate="slide-left" data-delay="400">
-                    <div class="scroller" data-rounded-scroll="true">
-                        <style></style>
-                        <svg class="scroller__bar" xmlns="http://www.w3.org/2000/svg">
-                            <path class="bar__track"></path>
-                            <path class="bar__thumb"></path>
-                        </svg>
-                        <div>
-                            <header>
-                                <h1>The Scroller</h1>
-                                <p>A mobile experience.</p>
-                                <div>A div inside header</div>
-                            </header>
-                            <main>
-                                <p>This is a custom scrollbar component that is only displayed on mobile devices. It uses GSAP for animations and Tweakpane for configuration.</p>
-                                <img src="img/partners/FROGPAY.png" alt="Frogpay partner logo" />
-                                <p>The scrollbar is styled with CSS and JavaScript to create a unique and interactive experience.</p>
-                                <img src="img/partners/reelai.png" alt="Reel AI partner logo" />
-                                <p>The content inside this scroller is just placeholder text and images.</p>
-                                <img src="img/partners/BNINER.jpg" alt="BNINER partner logo" />
-                                <p>This is the last paragraph in the main section.</p>
-                            </main>
-                            <footer>
-                                <p>&copy; 2025 Nashop</p>
-                            </footer>
+                    <!-- Enhanced Interactive Phone Container -->
+                    <div class="phone-interface phone-interface-container relative mx-auto w-[320px] md:w-[380px] h-[600px] md:h-[700px] transform-gpu cursor-pointer group will-change-transform">
+
+                        <!-- Cosmic Background Glow -->
+                        <div class="absolute -inset-8 bg-gradient-to-br from-lime-600/30 via-blue-600/20 to-sky-600/30 rounded-full blur-3xl opacity-60 group-hover:opacity-100 transition-opacity duration-700 animate-pulse"></div>
+
+                        <!-- Main Phone Frame -->
+                        <div class="relative w-full h-full rounded-[50px] bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 border-4 border-gray-700 shadow-2xl overflow-hidden group-hover:border-lime-500/50 transition-all duration-500">
+
+                            <!-- Phone Notch -->
+                            <div class="absolute top-0 left-1/2 transform -translate-x-1/2 w-1/3 h-8 bg-gray-900 rounded-b-2xl z-30 border-x-2 border-b-2 border-gray-700"></div>
+
+                            <!-- Screen Content Area -->
+                            <div class="relative w-full h-full p-6 pt-12 rounded-[46px] bg-gradient-to-b from-gray-950 via-gray-900 to-gray-950 overflow-hidden">
+
+                                <!-- Animated Status Bar -->
+                                <div class="flex justify-between items-center mb-8 text-white/70 text-sm">
+                                    <div class="flex items-center space-x-1">
+                                        <div class="w-1 h-1 bg-green-400 rounded-full animate-pulse"></div>
+                                        <span>Nashop</span>
+                                    </div>
+                                    <div class="flex items-center space-x-2">
+                                        <i class="fas fa-wifi text-xs"></i>
+                                        <i class="fas fa-battery-three-quarters text-xs"></i>
+                                    </div>
+                                </div>
+
+                                <!-- Interactive App Interface -->
+                                <div class="space-y-6">
+
+                                    <!-- Header with animated logo -->
+                                    <div class="text-center mb-8">
+                                        <div class="inline-block relative">
+                                            <div class="w-16 h-16 mx-auto mb-3 rounded-full bg-gradient-to-br from-lime-500 to-sky-500 flex items-center justify-center animate-spin-slow">
+                                                <i data-lucide="fingerprint" class="w-8 h-8 text-white"></i>
+                                            </div>
+                                            <h3 class="text-white font-bold text-lg bg-gradient-to-r from-lime-400 to-sky-400 bg-clip-text text-transparent">Nashop Mobile</h3>
+                                        </div>
+                                    </div>
+
+                                    <!-- Animated Feature Cards -->
+                                    <div class="space-y-4">
+                                        <!-- Enhanced Shopping Card -->
+                                        <div class="feature-card-mobile bg-gradient-to-r from-blue-900/40 to-lime-900/40 border border-blue-500/30 rounded-2xl p-4 transition-all duration-500 hover:border-blue-400/50 group/card will-change-transform">
+                                            <div class="flex items-center space-x-3">
+                                                <div class="w-10 h-10 rounded-full bg-blue-500/20 flex items-center justify-center group-hover/card:bg-blue-500/30 transition-colors">
+                                                    <i data-lucide="shopping-bag" class="w-5 h-5 text-blue-400"></i>
+                                                </div>
+                                                <div class="flex-1">
+                                                    <h4 class="text-white font-semibold text-sm">Smart Shopping</h4>
+                                                    <p class="text-gray-400 text-xs">AI-powered recommendations</p>
+                                                </div>
+                                                <div class="text-blue-400 text-xs animate-pulse">●</div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Token Card -->
+                                        <div class="feature-card-mobile bg-gradient-to-r from-lime-900/40 to-blue-900/40 border border-lime-500/30 rounded-2xl p-4 transform transition-all duration-500 hover:scale-105 hover:border-lime-400/50 group/card">
+                                            <div class="flex items-center space-x-3">
+                                                <div class="w-10 h-10 rounded-full bg-lime-500/20 flex items-center justify-center group-hover/card:bg-lime-500/30 transition-colors">
+                                                    <i data-lucide="coins" class="w-5 h-5 text-lime-400"></i>
+                                                </div>
+                                                <div class="flex-1">
+                                                    <h4 class="text-white font-semibold text-sm">$DAN Rewards</h4>
+                                                    <p class="text-gray-400 text-xs">Earn with every purchase</p>
+                                                </div>
+                                                <div class="text-lime-400 text-xs font-bold">+125</div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Wallet Card -->
+                                        <div class="feature-card-mobile bg-gradient-to-r from-blue-900/40 to-sky-900/40 border border-blue-500/30 rounded-2xl p-4 transform transition-all duration-500 hover:scale-105 hover:border-blue-400/50 group/card">
+                                            <div class="flex items-center space-x-3">
+                                                <div class="w-10 h-10 rounded-full bg-blue-500/20 flex items-center justify-center group-hover/card:bg-blue-500/30 transition-colors">
+                                                    <i data-lucide="wallet" class="w-5 h-5 text-blue-400"></i>
+                                                </div>
+                                                <div class="flex-1">
+                                                    <h4 class="text-white font-semibold text-sm">Secure Wallet</h4>
+                                                    <p class="text-gray-400 text-xs">Multi-chain support</p>
+                                                </div>
+                                                <div class="text-blue-400 text-xs animate-pulse">🔒</div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Interactive Bottom Section -->
+                                    <div class="mt-8 pt-6 border-t border-gray-700/50">
+                                        <div class="flex justify-center space-x-6">
+                                            <div class="text-center group/icon cursor-pointer">
+                                                <div class="w-12 h-12 mx-auto rounded-full bg-gradient-to-br from-lime-500/20 to-sky-500/20 flex items-center justify-center group-hover/icon:from-lime-500/40 group-hover/icon:to-sky-500/40 transition-all duration-300 group-hover/icon:scale-110">
+                                                    <i data-lucide="home" class="w-6 h-6 text-lime-400"></i>
+                                                </div>
+                                                <span class="text-xs text-gray-500 mt-1 block">Home</span>
+                                            </div>
+                                            <div class="text-center group/icon cursor-pointer">
+                                                <div class="w-12 h-12 mx-auto rounded-full bg-gradient-to-br from-blue-500/20 to-lime-500/20 flex items-center justify-center group-hover/icon:from-blue-500/40 group-hover/icon:to-lime-500/40 transition-all duration-300 group-hover/icon:scale-110">
+                                                    <i data-lucide="search" class="w-6 h-6 text-blue-400"></i>
+                                                </div>
+                                                <span class="text-xs text-gray-500 mt-1 block">Explore</span>
+                                            </div>
+                                            <div class="text-center group/icon cursor-pointer">
+                                                <div class="w-12 h-12 mx-auto rounded-full bg-gradient-to-br from-blue-500/20 to-sky-500/20 flex items-center justify-center group-hover/icon:from-blue-500/40 group-hover/icon:to-sky-500/40 transition-all duration-300 group-hover/icon:scale-110">
+                                                    <i data-lucide="user" class="w-6 h-6 text-blue-400"></i>
+                                                </div>
+                                                <span class="text-xs text-gray-500 mt-1 block">Profile</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Floating Particles -->
+                                <div class="absolute top-20 left-8 w-2 h-2 bg-lime-400/60 rounded-full animate-float-slow"></div>
+                                <div class="absolute top-40 right-12 w-1 h-1 bg-sky-400/60 rounded-full animate-float-slow-reverse"></div>
+                                <div class="absolute bottom-32 left-12 w-1.5 h-1.5 bg-blue-400/60 rounded-full animate-float-slow"></div>
+                                <div class="absolute bottom-20 right-8 w-1 h-1 bg-blue-400/60 rounded-full animate-float-slow-reverse"></div>
+
+                                <!-- Screen Reflection -->
+                                <div class="absolute top-0 left-0 right-0 h-1/3 bg-gradient-to-b from-white/5 to-transparent opacity-30 pointer-events-none"></div>
+                            </div>
+
+                            <!-- Phone Frame Reflection -->
+                            <div class="absolute top-[10%] left-[10%] right-[10%] h-[20%] bg-white/3 rounded-full blur-lg transform -rotate-12 opacity-40"></div>
                         </div>
+
+                        <!-- Orbiting Elements -->
+                        <div class="absolute -top-4 -left-4 w-8 h-8 bg-lime-500/20 rounded-full blur-sm animate-spin-slow"></div>
+                        <div class="absolute -top-4 -right-4 w-6 h-6 bg-sky-500/20 rounded-full blur-sm animate-spin-slow-reverse"></div>
+                        <div class="absolute -bottom-4 -left-4 w-6 h-6 bg-blue-500/20 rounded-full blur-sm animate-spin-slow"></div>
+                        <div class="absolute -bottom-4 -right-4 w-8 h-8 bg-blue-500/20 rounded-full blur-sm animate-spin-slow-reverse"></div>
+
+                        <!-- Data Flow Lines -->
+                        <div class="absolute top-1/4 -left-20 w-16 h-0.5 bg-gradient-to-r from-transparent via-lime-500/50 to-transparent animate-pulse"></div>
+                        <div class="absolute top-1/2 -right-20 w-16 h-0.5 bg-gradient-to-r from-transparent via-sky-500/50 to-transparent animate-pulse" style="animation-delay: 1s;"></div>
+                        <div class="absolute bottom-1/4 -left-20 w-16 h-0.5 bg-gradient-to-r from-transparent via-blue-500/50 to-transparent animate-pulse" style="animation-delay: 2s;"></div>
                     </div>
                 </div>
 
@@ -3189,6 +3297,6 @@
             }, 1000);
         });
     </script>
-    <script type="module" src="js/scroller.js" defer></script>
+
 </body>
 </html>
