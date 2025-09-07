@@ -1,0 +1,1670 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nashop: The Future of Decentralized Shopping | Earn $DAN Tokens</title>
+    <meta name="description" content="Explore Nashop, the future of decentralized online shopping. Earn $DAN crypto tokens with every purchase, unlock exclusive perks, and own your commerce journey. Join the revolution!">
+    <meta name="keywords" content="Nashop, DAN token, $DAN, decentralized shopping, crypto rewards, web3 commerce, blockchain shopping, online shopping, cryptocurrency, NFT marketplace, digital ownership">
+
+    <link rel="canonical" href="https://www.nashop.store/" />
+    <meta property="og:title" content="Nashop: The Future of Decentralized Shopping | Earn $DAN Tokens" />
+    <meta property="og:description" content="Earn $DAN crypto tokens with every purchase on Nashop, unlock exclusive perks, and own your decentralized commerce journey." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.nashop.store/" />
+    <meta property="og:image" content="https://www.nashop.store/img/nashop-og-image.png" />
+    <meta property="og:site_name" content="Nashop" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@nashopstoreweb3" />
+    <meta name="twitter:creator" content="@nashopstoreweb3" />
+    <meta name="twitter:title" content="Nashop: The Future of Decentralized Shopping | Earn $DAN Tokens" />
+    <meta name="twitter:description" content="Earn $DAN crypto tokens with every purchase on Nashop, unlock exclusive perks, and own your decentralized commerce journey." />
+    <meta name="twitter:image" content="https://www.nashop.store/img/nashop-twitter-image.png" />
+
+    <!-- Favicons -->
+    <link rel="icon" type="image/x-icon" href="SHOP-LOGO-BLACK.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --background: #000000;
+            --text: #c9c9c9;
+            --text-bright: #ffffff;
+            --accent: #00ddff;
+            --accent-dark: #00a2bd;
+            --purple: #a855f7;
+            --fuchsia: #d946ef;
+            --cyan: #06b6d4;
+            --card-bg: rgba(22, 22, 22, 0.5);
+            --border-color: rgba(255, 255, 255, 0.08);
+            --glow-color: hsla(188, 100%, 50%, 0.1);
+        }
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Inter', sans-serif; background-color: var(--background); color: var(--text); overflow-x: hidden; }
+        
+        /* --- PRELOADER --- */
+        .preloader { position: fixed; inset: 0; background-color: var(--background); display: flex; z-index: 10000; transition: opacity 1s ease-in-out; }
+        .preloader.loaded { opacity: 0; pointer-events: none; }
+        .preloader-counter { font-size: 8vw; font-weight: 500; color: var(--text-bright); }
+
+        /* --- CURSOR & UI --- */
+        .cursor-dot { position: fixed; top: 0; left: 0; width: 6px; height: 6px; background-color: var(--accent); border-radius: 50%; pointer-events: none; transform: translate(-50%, -50%); z-index: 9999; }
+        .cursor-outline { position: fixed; top: 0; left: 0; width: 30px; height: 30px; border: 1px solid var(--accent); border-radius: 50%; pointer-events: none; transform: translate(-50%, -50%); z-index: 9999; transition: width 0.3s, height 0.3s, background-color 0.3s, transform 0.3s cubic-bezier(0.19, 1, 0.22, 1); }
+        body.link-hovered .cursor-outline { background-color: hsla(188, 100%, 50%, 0.2); transform: translate(-50%, -50%) scale(1.5); }
+        
+        /* --- DYNAMIC AURORA BG --- */
+        #aurora-bg { position: fixed; inset: 0; z-index: -2; opacity: 0.3; filter: blur(100px); }
+        .aurora-blob { position: absolute; border-radius: 50%; transition: width 4s, height 4s, top 4s, left 4s; }
+        .blob-1 { background: linear-gradient(45deg, var(--purple), var(--fuchsia)); }
+        .blob-2 { background: linear-gradient(45deg, var(--cyan), var(--accent)); }
+        .blob-3 { background: linear-gradient(45deg, var(--fuchsia), var(--cyan)); }
+
+        main { padding-top: 10vh; }
+        section { padding: 10rem 0; }
+        .container { width: 90%; max-width: 1400px; margin: 0 auto; }
+        
+        /* --- REVEAL ANIMATIONS (GSAP Controlled) --- */
+        .reveal-text .word { transform: translateY(110%); }
+        .line { overflow: hidden; }
+
+        /* --- HERO --- */
+        .hero { min-height: 90vh; text-align: center; display: flex; flex-direction: column; justify-content: center; align-items: center; }
+        .hero h1 { font-size: clamp(4rem, 12vw, 10rem); font-weight: 900; line-height: 0.9; letter-spacing: -0.05em; color: var(--text-bright); margin-bottom: 2rem; }
+        .hero .highlight { background: linear-gradient(45deg, var(--fuchsia), var(--cyan)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .hero .subtitle { font-size: clamp(1.5rem, 4vw, 3rem); font-weight: 600; margin-bottom: 3rem; background: linear-gradient(45deg, var(--purple), var(--cyan)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .hero .description { font-size: 1.4rem; line-height: 1.6; max-width: 800px; margin: 0 auto 3rem; color: var(--text); }
+        .hero .cta-buttons { display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap; }
+        .cta-btn {
+            padding: 1rem 2rem; border-radius: 8px; font-weight: 600; text-decoration: none;
+            transition: all 0.3s ease; border: 1px solid transparent; display: inline-flex;
+            align-items: center; gap: 0.5rem; font-size: 1.1rem;
+        }
+        .cta-btn.primary {
+            background: linear-gradient(45deg, var(--purple), var(--fuchsia));
+            color: white;
+        }
+        .cta-btn.secondary {
+            background: linear-gradient(45deg, var(--cyan), var(--accent));
+            color: white;
+        }
+        .cta-btn.tertiary {
+            background: rgba(255,255,255,0.1);
+            color: var(--text-bright);
+            border-color: var(--border-color);
+        }
+        .cta-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
+        
+        /* --- ABOUT --- */
+        .about-grid { display: grid; grid-template-columns: 2fr 1fr; align-items: center; gap: 5rem; }
+        .about-text p { font-size: 1.4rem; line-height: 1.7; max-width: 800px; margin-bottom: 2rem; }
+        .about-image { border-radius: 12px; overflow: hidden; will-change: transform; }
+        .about-image img { width: 100%; height: auto; display: block; }
+        
+        /* --- FEATURES MARQUEE --- */
+        .features-marquee { width: 100%; overflow: hidden; padding: 2rem 0; border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color); }
+        .marquee-inner { display: flex; width: max-content; animation: marquee 30s linear infinite; }
+        .marquee-inner:hover { animation-play-state: paused; }
+        .feature-tag { font-size: 2rem; font-weight: 600; padding: 0 2rem; color: var(--text); white-space: nowrap; }
+        .feature-tag .bullet { color: var(--accent); }
+        .feature-tag .token { background: linear-gradient(45deg, var(--fuchsia), var(--purple)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-weight: 700; }
+        @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
+        /* --- FEATURES --- */
+        .features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+        .feature-card {
+            background-color: var(--card-bg); border: 1px solid var(--border-color);
+            padding: 2.5rem; border-radius: 12px;
+            will-change: transform, opacity; position: relative; overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px var(--glow-color);
+        }
+        .feature-card::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+            background: linear-gradient(90deg, var(--purple), var(--fuchsia), var(--cyan));
+        }
+        .feature-icon { margin-bottom: 1.5rem; font-size: 2.5rem; color: var(--accent); line-height: 1; }
+        .feature-card h3 { color: var(--text-bright); margin-bottom: 1rem; font-size: 1.5rem; }
+        .feature-card p { line-height: 1.6; }
+        .feature-card .token-highlight { background: linear-gradient(45deg, var(--fuchsia), var(--purple)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-weight: 700; }
+
+        /* --- BENTO GRID --- */
+        .bento-grid { display: grid; grid-template-columns: repeat(4, 1fr); grid-auto-rows: 180px; gap: 1rem; }
+        .bento-box {
+            background-color: var(--card-bg); border: 1px solid var(--border-color);
+            border-radius: 12px; padding: 1.5rem; position: relative; overflow: hidden;
+            will-change: transform, opacity;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .bento-box:hover {
+            transform: scale(1.02);
+            box-shadow: 0 0 15px var(--glow-color);
+        }
+        .bento-box.c2 { grid-column: span 2; }
+        .bento-box.r2 { grid-row: span 2; }
+        .bento-box h4 { color: var(--text-bright); font-size: 1.25rem; }
+        .bento-box .bento-text { font-size: 1rem; }
+        
+        /* --- TOKEN PRESALE SECTION --- */
+        .presale-section { text-align: center; }
+        .presale-table {
+            width: 100%;
+            max-width: 800px;
+            margin: 3rem auto 0;
+            border-collapse: collapse;
+            background: var(--card-bg);
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+        }
+        .presale-table th, .presale-table td {
+            padding: 1.25rem 1.5rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .presale-table thead th {
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--text-bright);
+            font-size: 1.1rem;
+        }
+        .presale-table tbody tr:last-child td {
+            border-bottom: none;
+        }
+        .presale-table .phase-highlight {
+            font-weight: 700;
+            color: var(--text-bright);
+        }
+        .presale-table .price-highlight {
+            font-weight: 700;
+            color: var(--cyan);
+        }
+        .presale-summary {
+            margin-top: 2rem;
+            font-size: 1.2rem;
+        }
+
+        /* --- UTILITY CLASSES --- */
+        .token-highlight {
+            background: linear-gradient(45deg, var(--fuchsia), var(--purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 700;
+        }
+
+        /* --- FINGERPRINT & QR COMPONENT STYLES --- */
+        .fingerprint-container { 
+            position: relative; 
+            display: inline-block; 
+            margin-bottom: 2rem;
+        }
+        .fingerprint-clickable { 
+            transition: all 0.3s ease; 
+            cursor: pointer;
+            position: relative;
+        }
+        .fingerprint-particles { 
+            position: absolute; 
+            inset: 0; 
+            pointer-events: none; 
+        }
+        .fingerprint-ripple-container { 
+            position: absolute; 
+            inset: 0; 
+            pointer-events: none; 
+        }
+        .fingerprint-energy-burst { 
+            position: absolute; 
+            inset: 0; 
+            pointer-events: none; 
+            opacity: 0; 
+        }
+        
+        /* Fingerprint Icon Styles */
+        .fingerprint-icon {
+            width: 80px;
+            height: 80px;
+            color: var(--accent);
+            filter: drop-shadow(0 0 15px rgba(0, 221, 255, 0.5));
+            transition: all 0.5s ease;
+        }
+        .fingerprint-clickable:hover .fingerprint-icon {
+            color: var(--text-bright);
+            filter: drop-shadow(0 0 25px rgba(255, 255, 255, 0.7));
+            transform: scale(1.1);
+        }
+        
+        /* Pulse Ring */
+        .pulse-ring {
+            position: absolute;
+            inset: 0;
+            border-radius: 50%;
+            border: 1px solid rgba(0, 221, 255, 0.3);
+            animation: ping-slow 3s cubic-bezier(0, 0, 0.2, 1) infinite;
+            opacity: 0.6;
+        }
+        .fingerprint-clickable:hover .pulse-ring {
+            border-color: rgba(255, 255, 255, 0.5);
+        }
+        
+        /* Background Glow */
+        .fingerprint-glow {
+            position: absolute;
+            inset: -16px;
+            background: linear-gradient(135deg, rgba(0, 221, 255, 0.2), rgba(168, 85, 247, 0.1), rgba(0, 221, 255, 0.2));
+            border-radius: 50%;
+            filter: blur(20px);
+            opacity: 0.6;
+            animation: pulse-glow 5s ease-in-out infinite;
+        }
+        .fingerprint-clickable:hover .fingerprint-glow {
+            opacity: 0.8;
+        }
+        
+        /* QR Code Section Styles */
+        .qr-section {
+            margin-top: 5rem;
+            text-align: center;
+        }
+        .qr-container {
+            display: inline-block;
+            position: relative;
+            padding: 2rem;
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            backdrop-filter: blur(10px);
+        }
+        .qr-glow {
+            position: absolute;
+            inset: -4px;
+            background: linear-gradient(90deg, rgba(0, 221, 255, 0.1), rgba(168, 85, 247, 0.1), rgba(0, 221, 255, 0.1));
+            border-radius: 20px;
+            filter: blur(20px);
+            opacity: 0.7;
+            animation: pulse-glow 5s ease-in-out infinite;
+        }
+        .qr-video-container {
+            position: relative;
+            width: 160px;
+            height: 160px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        .qr-video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: opacity 0.5s ease;
+        }
+        .qr-video.ended {
+            /* When video ends, it will look like a static image */
+            cursor: default;
+        }
+        .qr-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(22, 22, 22, 0.9), rgba(0, 0, 0, 0.9));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 1rem;
+            backdrop-filter: blur(10px);
+        }
+        .qr-generate-btn {
+            padding: 0.75rem 1.5rem;
+            background: linear-gradient(90deg, var(--cyan), var(--accent));
+            color: white;
+            font-size: 0.875rem;
+            border-radius: 8px;
+            border: 1px solid rgba(0, 221, 255, 0.5);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin: 0 auto;
+        }
+        .qr-generate-btn:hover {
+            background: linear-gradient(90deg, var(--accent-dark), var(--cyan));
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        .qr-content {
+            text-align: left;
+            max-width: 400px;
+            margin-left: 2rem;
+        }
+        .qr-title {
+            font-size: 1.25rem;
+            font-weight: bold;
+            color: var(--text-bright);
+            margin-bottom: 0.5rem;
+        }
+        .qr-description {
+            color: var(--text);
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+        .qr-status {
+            margin-top: 0.75rem;
+            font-size: 0.875rem;
+            color: var(--text);
+        }
+        
+        /* Video Modal Styles */
+        .video-modal {
+            position: fixed;
+            inset: 0;
+            z-index: 50;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0, 0, 0, 0.9);
+            backdrop-filter: blur(10px);
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.7s ease-out;
+        }
+        .video-modal.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        .modal-content {
+            position: relative;
+            max-width: 1200px;
+            width: 100%;
+            margin: 1rem;
+            transform: scale(0.9);
+            transition: transform 0.7s ease-out;
+        }
+        .video-modal.active .modal-content {
+            transform: scale(1);
+        }
+        .close-btn {
+            position: absolute;
+            top: -16px;
+            right: -16px;
+            z-index: 10;
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: rgba(22, 22, 22, 0.8);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            color: var(--text);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .close-btn:hover {
+            border-color: rgba(255, 0, 0, 0.6);
+            color: #ff4444;
+        }
+        .video-frame {
+            position: relative;
+            border-radius: 24px;
+            overflow: hidden;
+            background: linear-gradient(135deg, var(--card-bg), rgba(22, 22, 22, 0.8));
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+        }
+        .video-border-glow {
+            position: absolute;
+            inset: -4px;
+            background: linear-gradient(90deg, rgba(168, 85, 247, 0.3), rgba(0, 221, 255, 0.3), rgba(168, 85, 247, 0.3));
+            border-radius: 28px;
+            filter: blur(20px);
+            opacity: 0.7;
+            animation: pulse-glow 5s ease-in-out infinite;
+        }
+        .video-player {
+            width: 100%;
+            height: auto;
+            max-height: 70vh;
+            object-fit: contain;
+        }
+        .video-loading {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+        }
+        .loading-spinner {
+            width: 64px;
+            height: 64px;
+            border: 4px solid rgba(0, 221, 255, 0.3);
+            border-top: 4px solid var(--accent);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-bottom: 1rem;
+        }
+        .video-info {
+            position: relative;
+            padding: 2rem;
+            background: linear-gradient(135deg, rgba(22, 22, 22, 0.9), rgba(0, 0, 0, 0.9));
+            backdrop-filter: blur(10px);
+        }
+        .video-divider {
+            position: absolute;
+            top: 0;
+            left: 2rem;
+            right: 2rem;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(0, 221, 255, 0.5), transparent);
+        }
+        .video-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 0.75rem;
+            background: linear-gradient(90deg, var(--fuchsia), var(--cyan), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: gradient-x 3s ease infinite;
+        }
+        .video-description {
+            color: var(--text);
+            font-size: 1.125rem;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+        .video-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.875rem;
+        }
+        .feature-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            animation: pulse 2s ease-in-out infinite;
+        }
+        .feature-dot.lime { background: #84cc16; }
+        .feature-dot.cyan { background: var(--cyan); }
+        .feature-dot.blue { background: var(--accent); }
+        .feature-text.lime { color: #84cc16; font-weight: 500; }
+        .feature-text.cyan { color: var(--cyan); font-weight: 500; }
+        .feature-text.blue { color: var(--accent); font-weight: 500; }
+        .whitelist-btn {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem 2rem;
+            border-radius: 16px;
+            font-weight: bold;
+            font-size: 1.125rem;
+            color: white;
+            text-decoration: none;
+            overflow: hidden;
+            transition: all 0.5s ease-out;
+            transform: scale(1);
+        }
+        .whitelist-btn:hover {
+            transform: scale(1.05);
+        }
+        .btn-bg {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(90deg, #84cc16, var(--accent), var(--cyan));
+            animation: gradient-x 3s ease infinite;
+        }
+        .whitelist-btn:hover .btn-bg {
+            background: linear-gradient(90deg, #65a30d, var(--accent-dark), var(--cyan));
+        }
+        .btn-border {
+            position: absolute;
+            inset: 0;
+            border-radius: 16px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.5s ease;
+            box-shadow: 0 0 20px rgba(132, 204, 22, 0.4);
+        }
+        .whitelist-btn:hover .btn-border {
+            border-color: rgba(255, 255, 255, 0.4);
+            box-shadow: 0 0 30px rgba(132, 204, 22, 0.6);
+        }
+        .btn-content {
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .btn-icon {
+            width: 20px;
+            height: 20px;
+            color: white;
+            transition: all 0.3s ease;
+        }
+        .whitelist-btn:hover .btn-icon {
+            animation: pulse 1s ease-in-out infinite;
+        }
+        .btn-arrow {
+            width: 20px;
+            height: 20px;
+            color: white;
+            transition: transform 0.3s ease;
+        }
+        .whitelist-btn:hover .btn-arrow {
+            transform: translateX(4px);
+        }
+        
+        /* Animations */
+        .animate-ping-slow { animation: ping-slow 3s cubic-bezier(0, 0, 0.2, 1) infinite; }
+        .animate-spin-ultra-slow { animation: spin 20s linear infinite; }
+        .animate-spin-ultra-slow-reverse { animation: spin 25s linear infinite reverse; }
+        .animate-float-slow { animation: float-slow 6s ease-in-out infinite; }
+        .animate-float-slow-reverse { animation: float-slow 8s ease-in-out infinite reverse; }
+        .animate-gradient-x { animation: gradient-x 3s ease infinite; }
+        .animate-gradient-text { animation: gradient-text 3s ease infinite; }
+        
+        @keyframes ping-slow { 0% { transform: scale(1); opacity: 1; } 75%, 100% { transform: scale(2); opacity: 0; } }
+        @keyframes float-slow { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-10px); } }
+        @keyframes gradient-x { 0%, 100% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } }
+        @keyframes gradient-text { 0%, 100% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } }
+        @keyframes ripple { 0% { transform: scale(0); opacity: 1; } 100% { transform: scale(1); opacity: 0; } }
+        @keyframes energy-burst { 0% { transform: scale(0) rotate(0deg); opacity: 0.8; } 50% { transform: scale(1.2) rotate(180deg); opacity: 1; } 100% { transform: scale(0) rotate(360deg); opacity: 0; } }
+        @keyframes rotate-3d { 0% { transform: rotateY(0deg) rotateX(0deg); } 100% { transform: rotateY(360deg) rotateX(360deg); } }
+        @keyframes particle-float { 0% { transform: translateY(0) scale(1); opacity: 1; } 100% { transform: translateY(-100px) scale(0); opacity: 0; } }
+        @keyframes pulse-glow { 0%, 100% { opacity: 0.6; } 50% { opacity: 0.8; } }
+        
+        .animate-ripple { animation: ripple 1s ease-out forwards; }
+        .animate-energy-burst { animation: energy-burst 1.5s ease-out forwards; }
+        .animate-rotate-3d { animation: rotate-3d 2s linear infinite; }
+        
+        .hover-glow:hover { box-shadow: 0 0 20px rgba(0, 221, 255, 0.3); }
+
+        @media (max-width: 900px) {
+            .about-grid, .features-grid { grid-template-columns: 1fr; }
+            .bento-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 200px; }
+            .hero .cta-buttons { flex-direction: column; align-items: center; }
+            .cta-btn { width: 100%; max-width: 300px; justify-content: center; }
+            
+            /* Mobile responsive styles for new components */
+            .qr-content {
+                text-align: center;
+                margin-left: 0;
+                margin-top: 1rem;
+            }
+            .qr-video-container {
+                width: 120px;
+                height: 120px;
+            }
+            .modal-content {
+                margin: 0.5rem;
+            }
+            .video-info {
+                padding: 1rem;
+            }
+            .video-title {
+                font-size: 1.25rem;
+            }
+            .video-description {
+                font-size: 1rem;
+            }
+            .whitelist-btn {
+                padding: 0.75rem 1.5rem;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="preloader"><span class="preloader-counter">0</span></div>
+    <div id="aurora-bg">
+        <div class="aurora-blob blob-1"></div>
+        <div class="aurora-blob blob-2"></div>
+        <div class="aurora-blob blob-3"></div>
+    </div>
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
+
+    <main>
+        <section class="hero">
+            <!-- Interactive Fingerprint Container -->
+            <div class="fingerprint-container">
+                <!-- Enhanced Background Glow -->
+                <div class="fingerprint-glow"></div>
+
+                <!-- Interactive Fingerprint Core (PRESERVED FUNCTIONALITY) -->
+                <div class="fingerprint-clickable" aria-label="Nashop Logo - Click to watch whitelist video" role="button" tabindex="0">
+                    <!-- Main Fingerprint Icon -->
+                    <i data-lucide="fingerprint" class="fingerprint-icon" aria-label="Nashop logo icon"></i>
+
+                    <!-- Enhanced Pulse Ring -->
+                    <div class="pulse-ring"></div>
+                </div>
+
+                <!-- Particle Effects (PRESERVED for click interactions) -->
+                <div class="fingerprint-particles"></div>
+                <div class="fingerprint-ripple-container"></div>
+                <div class="fingerprint-energy-burst"></div>
+            </div>
+
+            <h1 class="reveal-text">
+                <span class="line"><span class="highlight">NASHOP</span></span>
+            </h1>
+            <div class="subtitle reveal-text">
+                <span class="line">THE FUTURE OF</span>
+                <span class="line">DECENTRALIZED COMMERCE</span>
+            </div>
+            <p class="description reveal-text">
+                <span class="line">Step into the future of decentralized commerce. Earn <strong class="token-highlight">$DAN</strong> tokens,</span>
+                <span class="line">unlock exclusive perks, and own your digital shopping journey.</span>
+            </p>
+            <div class="cta-buttons reveal-text">
+                <a href="#features" class="cta-btn primary">
+                    <span>Explore Features</span>
+                    <span>↓</span>
+                </a>
+                <a href="https://token.nashop.store" target="_blank" class="cta-btn secondary">
+                    <span>Get $DAN Token</span>
+                    <span>→</span>
+                </a>
+                <a href="/nashop_doc_beta" target="_blank" class="cta-btn tertiary">
+                    <span>Documentation</span>
+                    <span>↗</span>
+                </a>
+            </div>
+        </section>
+
+        <section id="about">
+            <div class="container about-grid">
+                <div class="about-text">
+                    <p class="reveal-text"><span class="line">Nashop represents the next evolution of online</span><span class="line"> commerce, where blockchain technology meets</span><span class="line"> seamless user experience. Our platform</span><span class="line"> revolutionizes how you shop, earn, and</span><span class="line"> interact with digital commerce.</span></p>
+                    <p class="reveal-text"><span class="line">Every purchase on Nashop rewards you with</span><span class="line"> <span class="token-highlight">$DAN</span> tokens, creating a sustainable</span><span class="line"> ecosystem where customers become stakeholders</span><span class="line"> in the platform's success.</span></p>
+                </div>
+                <div class="about-image">
+                    <img src="https://i.postimg.cc/y8J3LMMt/about-visual.jpg" alt="Nashop Platform Visualization">
+                </div>
+            </div>
+        </section>
+
+        <section class="features-marquee">
+            <div class="marquee-inner">
+                <div class="feature-tag">Earn <span class="token">$DAN</span> Tokens <span class="bullet">•</span></div><div class="feature-tag">Decentralized Shopping <span class="bullet">•</span></div><div class="feature-tag">Crypto Rewards <span class="bullet">•</span></div><div class="feature-tag">Web3 Commerce <span class="bullet">•</span></div><div class="feature-tag">Digital Ownership <span class="bullet">•</span></div>
+                <!-- Duplicate for seamless loop -->
+                <div class="feature-tag">Earn <span class="token">$DAN</span> Tokens <span class="bullet">•</span></div><div class="feature-tag">Decentralized Shopping <span class="bullet">•</span></div><div class="feature-tag">Crypto Rewards <span class="bullet">•</span></div><div class="feature-tag">Web3 Commerce <span class="bullet">•</span></div><div class="feature-tag">Digital Ownership <span class="bullet">•</span></div>
+            </div>
+        </section>
+
+        <section id="features">
+            <div class="container">
+                <h2 style="font-size: 3rem; text-align:center; margin-bottom: 5rem;" class="reveal-text"><span class="line">Platform Features</span></h2>
+                <div class="features-grid">
+                    <div class="feature-card"><div class="feature-icon">💰</div><h3>Earn <span class="token-highlight">$DAN</span> Tokens</h3><p>Get rewarded with crypto tokens for every purchase. Build your digital wealth while you shop.</p></div>
+                    <div class="feature-card"><div class="feature-icon">🔗</div><h3>Decentralized Commerce</h3><p>Experience true ownership in a decentralized marketplace powered by blockchain technology.</p></div>
+                    <div class="feature-card"><div class="feature-icon">🎁</div><h3>Exclusive Perks</h3><p>Unlock VIP benefits, early access to products, and special discounts as a token holder.</p></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="how-it-works">
+            <div class="container">
+                <h2 style="font-size: 3rem; text-align:center; margin-bottom: 5rem;" class="reveal-text"><span class="line">How It Works</span></h2>
+                <div class="bento-grid">
+                    <div class="bento-box r2 c2"><h4>1. Shop & Earn</h4><p class="bento-text">Browse our curated marketplace and make purchases just like any other e-commerce platform. With every transaction, you automatically earn <span class="token-highlight">$DAN</span> tokens that accumulate in your wallet.</p></div>
+                    <div class="bento-box"><h4>2. Stake & Grow</h4><p class="bento-text">Stake your <span class="token-highlight">$DAN</span> tokens to earn additional rewards and unlock premium features on the platform.</p></div>
+                    <div class="bento-box" style="background-image: url('https://i.postimg.cc/tJnNGRzW/bento-visual.jpg'); background-size: cover;"></div>
+                    <div class="bento-box"><h4>3. Exclusive Access</h4><p class="bento-text">Token holders get early access to new products, special discounts, and participate in platform governance decisions.</p></div>
+                    <div class="bento-box"><h4>4. Community Rewards</h4><p class="bento-text">Join a thriving community of crypto-savvy shoppers and earn bonus rewards through referrals and community participation.</p></div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- DAN Token Presale Section -->
+        <section id="presale" class="presale-section">
+            <div class="container">
+                <h2 style="font-size: 3rem; text-align:center; margin-bottom: 2rem;" class="reveal-text"><span class="line">DAN Token Presale</span></h2>
+                <p class="description reveal-text" style="max-width: 700px; margin: 0 auto 3rem;">
+                    <span class="line">Be an early supporter of the Nashop ecosystem. Our presale is structured to build a strong community and</span>
+                    <span class="line">ensure a gradual and stable launch.</span>
+                </p>
+
+                <table class="presale-table">
+                    <thead>
+                        <tr>
+                            <th>Phase</th>
+                            <th>Tokens (DAN)</th>
+                            <th>Price per DAN</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="phase-highlight">Phase 1</td>
+                            <td>100,000</td>
+                            <td class="price-highlight">$0.06</td>
+                        </tr>
+                        <tr>
+                            <td class="phase-highlight">Phase 2</td>
+                            <td>150,000</td>
+                            <td class="price-highlight">$0.12</td>
+                        </tr>
+                        <tr>
+                            <td class="phase-highlight">Phase 3</td>
+                            <td>200,000</td>
+                            <td class="price-highlight">$0.20</td>
+                        </tr>
+                        <tr>
+                            <td class="phase-highlight">Phase 4</td>
+                            <td>250,000</td>
+                            <td class="price-highlight">$0.30</td>
+                        </tr>
+                        <tr>
+                            <td class="phase-highlight">Phase 5 – Final</td>
+                            <td>300,000</td>
+                            <td class="price-highlight">$0.45</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="presale-summary">
+                    <p><strong>Total Tokens Allocated:</strong> 1,000,000 DAN</p>
+                    <p><strong>Target Listing Price:</strong> <span style="color: var(--accent); font-weight: 700;">$0.65 per DAN</span></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Enhanced QR Code Section -->
+        <section id="qr-code-section" class="qr-section">
+            <div class="container">
+                <div class="qr-container">
+                    <div class="qr-glow"></div>
+
+                    <div style="display: flex; flex-direction: column; align-items: center; gap: 2rem;">
+                        <!-- Enhanced QR Code Video -->
+                        <div class="qr-video-container">
+                            <!-- QR Code Video -->
+                            <video
+                                id="qr-video"
+                                src="img/QR VID.mp4"
+                                class="qr-video"
+                                muted
+                                playsinline
+                                preload="metadata"
+                                poster=""
+                                disablePictureInPicture
+                                controlsList="nodownload nofullscreen noremoteplayback"
+                                style="pointer-events: none;"
+                                onerror="console.error('Video failed to load:', this.src)"
+                                onloadstart="console.log('Video loading started')"
+                                oncanplay="console.log('Video can play')"
+                                onended="console.log('Video ended - keeping at last frame')"
+                            >
+                                Your browser does not support the video tag.
+                            </video>
+
+                            <!-- QR Generation Overlay -->
+                            <div id="qr-generation-overlay" class="qr-overlay">
+                                <div>
+                                    <button
+                                        id="generate-qr-btn"
+                                        class="qr-generate-btn"
+                                        onclick="generateQRForMobile()"
+                                    >
+                                        <svg style="width: 16px; height: 16px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
+                                        </svg>
+                                        Generate QR Code
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Enhanced Text Content -->
+                        <div class="qr-content">
+                            <h3 class="qr-title">
+                                <span class="animate-gradient-text">Scan to Join Waitlist</span>
+                            </h3>
+                            <p class="qr-description">Be among the first to experience the Nashop mobile app. Scan this code or visit our website to join the waitlist and receive exclusive early access benefits.</p>
+
+                            <!-- QR Status Indicator -->
+                            <div id="qr-status" class="qr-status" style="display: none;">
+                                <span id="qr-status-text">QR Code ready to scan!</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer style="text-align:center; padding: 10rem 2rem;">
+            <h2 class="reveal-text" style="font-size:clamp(2.5rem, 8vw, 6rem); font-weight:700; color:var(--text-bright); line-height:1.1;">
+                <span class="line">Ready to join the</span><span class="line">future of commerce?</span>
+            </h2>
+            <div style="display: flex; gap: 2rem; justify-content: center; margin-top: 3rem; flex-wrap: wrap;">
+                <a href="https://token.nashop.store" target="_blank" class="cta-btn primary" style="margin-top:2rem;">
+                    <span>Get $DAN Token</span>
+                    <span>→</span>
+                </a>
+                <a href="/nashop_doc_beta" target="_blank" class="cta-btn tertiary" style="margin-top:2rem;">
+                    <span>Read Whitepaper</span>
+                    <span>↗</span>
+                </a>
+            </div>
+            <p style="margin-top: 3rem; color: var(--text); font-size: 1.1rem;">
+                Join the revolution. Own your commerce journey.
+            </p>
+        </footer>
+
+    </main>
+
+    <!-- Quantum Video Modal for Whitelist -->
+    <div id="whitelist-video-modal" class="video-modal">
+        <!-- Modal Content Container -->
+        <div class="modal-content">
+            <!-- Close Button -->
+            <button id="close-video-modal" class="close-btn">
+                <i class="fas fa-times" style="font-size: 1.25rem;"></i>
+                <span class="sr-only">Close video</span>
+            </button>
+
+            <!-- Video Container with Quantum Frame -->
+            <div class="video-frame">
+                <!-- Quantum Border Glow -->
+                <div class="video-border-glow"></div>
+
+                <!-- Video Content Area -->
+                <div style="position: relative; background: black; border-radius: 24px; overflow: hidden;">
+                    <!-- Video Element -->
+                    <video id="whitelist-video" class="video-player" controls preload="metadata" poster="">
+                        <source src="img/QR VID.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+
+                    <!-- Video Loading Overlay -->
+                    <div id="video-loading" class="video-loading">
+                        <div style="text-align: center;">
+                            <div class="loading-spinner"></div>
+                            <p style="color: white; font-size: 1.125rem; font-weight: 500;">Loading Quantum Experience...</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Information Panel -->
+                <div class="video-info">
+                    <!-- Quantum Divider -->
+                    <div class="video-divider"></div>
+
+                    <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+                        <!-- Left Side: Title and Description -->
+                        <div style="flex: 1;">
+                            <h3 class="video-title">
+                                Join the Nashop Quantum Whitelist
+                            </h3>
+                            <p class="video-description">
+                                Discover how to secure your spot in the future of decentralized commerce. Learn about exclusive early access benefits,
+                                <span style="color: var(--accent); font-weight: 600;">$DAN token rewards</span>, and be among the first to experience the quantum leap in online shopping.
+                            </p>
+
+                            <!-- Feature Highlights -->
+                            <div class="video-features">
+                                <div class="feature-item">
+                                    <div class="feature-dot lime"></div>
+                                    <span class="feature-text lime">Early Access</span>
+                                </div>
+                                <div class="feature-item">
+                                    <div class="feature-dot cyan" style="animation-delay: 0.5s;"></div>
+                                    <span class="feature-text cyan">Exclusive Rewards</span>
+                                </div>
+                                <div class="feature-item">
+                                    <div class="feature-dot blue" style="animation-delay: 1s;"></div>
+                                    <span class="feature-text blue">VIP Benefits</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Right Side: Action Button -->
+                        <div>
+                            <a href="#qr-code-section" id="join-whitelist-cta" class="whitelist-btn">
+                                <!-- Button Background -->
+                                <span class="btn-bg"></span>
+
+                                <!-- Button Border -->
+                                <span class="btn-border"></span>
+
+                                <!-- Button Content -->
+                                <span class="btn-content">
+                                    <i data-lucide="zap" class="btn-icon"></i>
+                                    <span style="color: white; font-weight: bold; letter-spacing: 0.05em;">JOIN WHITELIST NOW</span>
+                                    <i data-lucide="arrow-right" class="btn-arrow"></i>
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Required JavaScript Dependencies -->
+    <script defer src="https://unpkg.com/lucide@latest"></script>
+    <script defer src="js/script.js"></script>
+    <script defer src="js/qr-notification-handler.js"></script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+    <script>
+    function initApp() {
+        // --- SMOOTH SCROLL ---
+        const lenis = new Lenis();
+        function raf(time) {
+            lenis.raf(time);
+            requestAnimationFrame(raf);
+        }
+        requestAnimationFrame(raf);
+        
+        // --- PRELOADER ---
+        const counterElement = document.querySelector(".preloader-counter");
+        let currentValue = 0;
+        const updateCounter = () => {
+            if (currentValue === 100) return;
+            currentValue += Math.floor(Math.random() * 10) + 1;
+            if (currentValue > 100) currentValue = 100;
+            counterElement.textContent = currentValue;
+            let delay = Math.floor(Math.random() * 200) + 25;
+            setTimeout(updateCounter, delay);
+        };
+        updateCounter();
+
+        window.onload = () => {
+            gsap.to(counterElement, { opacity: 0, duration: 0.5 });
+            gsap.to(".preloader", { scale: 1.2, opacity: 0, duration: 1, delay: 0.5, onComplete: () => document.querySelector(".preloader").classList.add("loaded") });
+        };
+        
+        // --- GSAP ANIMATIONS ---
+        gsap.registerPlugin(ScrollTrigger);
+
+        // TEXT REVEAL
+        document.querySelectorAll('.reveal-text').forEach(el => {
+            el.innerHTML = el.innerHTML.split('<span class="line">').map(line => line === '' ? '' : `<span class="line">${line}`).join('');
+            gsap.fromTo(el.querySelectorAll('.line'), 
+                { y: 100, opacity:0 }, 
+                { y: 0, opacity:1, stagger: 0.1, duration: 1, ease: 'power3.out', 
+                  scrollTrigger: { trigger: el, start: 'top 85%', end: 'bottom 50%', scrub: 1 } 
+                }
+            );
+        });
+
+        // ABOUT IMAGE PARALLAX & SCALE
+        gsap.fromTo(".about-image", 
+            { y: -50, scale: 1.1 }, 
+            { y: 50, scale: 1, 
+              scrollTrigger: { trigger: ".about-grid", start: "top bottom", end: "bottom top", scrub: true } 
+            }
+        );
+        
+        // FEATURE CARDS
+        gsap.from(".feature-card", {
+            y: 100, opacity: 0,
+            stagger: 0.1,
+            scrollTrigger: { trigger: ".features-grid", start: "top 80%" }
+        });
+
+        // BENTO BOXES
+        gsap.from(".bento-box", {
+            scale: 0.95, opacity: 0,
+            stagger: 0.05,
+            scrollTrigger: { trigger: ".bento-grid", start: "top 80%" }
+        });
+        
+        // TOKEN PRESALE TABLE
+        gsap.from(".presale-table tr", {
+            x: -50, opacity: 0,
+            stagger: 0.1,
+            duration: 0.8,
+            ease: 'power3.out',
+            scrollTrigger: { trigger: ".presale-table", start: "top 85%" }
+        });
+
+
+        // --- CURSOR ---
+        const cursorDot = document.querySelector('.cursor-dot');
+        const cursorOutline = document.querySelector('.cursor-outline');
+        window.addEventListener('mousemove', e => {
+            cursorDot.style.left = `${e.clientX}px`; cursorDot.style.top = `${e.clientY}px`;
+            cursorOutline.style.left = `${e.clientX}px`; cursorOutline.style.top = `${e.clientY}px`;
+        });
+        document.querySelectorAll('a, button').forEach(el => {
+            el.addEventListener('mouseenter', () => document.body.classList.add('link-hovered'));
+            el.addEventListener('mouseleave', () => document.body.classList.remove('link-hovered'));
+        });
+        
+        // --- AURORA BACKGROUND ---
+        const blob1 = document.querySelector(".blob-1");
+        const blob2 = document.querySelector(".blob-2");
+        const blob3 = document.querySelector(".blob-3");
+        setInterval(() => {
+            blob1.style.width = Math.floor(Math.random() * 300 + 400) + 'px';
+            blob1.style.height = Math.floor(Math.random() * 300 + 400) + 'px';
+            blob1.style.top = Math.floor(Math.random() * 80) + '%';
+            blob1.style.left = Math.floor(Math.random() * 80) + '%';
+
+            blob2.style.width = Math.floor(Math.random() * 300 + 400) + 'px';
+            blob2.style.height = Math.floor(Math.random() * 300 + 400) + 'px';
+            blob2.style.top = Math.floor(Math.random() * 80) + '%';
+            blob2.style.left = Math.floor(Math.random() * 80) + '%';
+
+            blob3.style.width = Math.floor(Math.random() * 250 + 350) + 'px';
+            blob3.style.height = Math.floor(Math.random() * 250 + 350) + 'px';
+            blob3.style.top = Math.floor(Math.random() * 80) + '%';
+            blob3.style.left = Math.floor(Math.random() * 80) + '%';
+        }, 4000);
+    }
+    
+    // QR Code Helper Functions
+    let isGeneratingQR = false; // Flag to prevent multiple generations
+    
+    async function generateQRForMobile() {
+        if (isGeneratingQR) {
+            console.log('QR generation already in progress, ignoring request');
+            return;
+        }
+        
+        if (!window.qrNotificationHandler) {
+            console.error('QR Notification Handler not initialized');
+            alert('QR system not ready. Please refresh the page.');
+            return;
+        }
+
+        isGeneratingQR = true; // Set flag
+        
+        // Reset scan callback flag for new QR
+        if (window.qrNotificationHandler) {
+            window.qrNotificationHandler.scanCallbackSet = false;
+        }
+
+        try {
+            const generateBtn = document.getElementById('generate-qr-btn');
+            const qrStatus = document.getElementById('qr-status');
+            const qrStatusText = document.getElementById('qr-status-text');
+            const qrOverlay = document.getElementById('qr-generation-overlay');
+            const qrVideo = document.getElementById('qr-video');
+            const qrVideoContainer = document.querySelector('.qr-video-container');
+
+            // Update button to show loading
+            generateBtn.innerHTML = `
+                <div style="width: 16px; height: 16px; border: 2px solid rgba(255,255,255,0.3); border-top: 2px solid white; border-radius: 50%; animation: spin 1s linear infinite;"></div>
+                Generating...
+            `;
+            generateBtn.disabled = true;
+
+            // Generate QR for Nashop mobile app
+            const result = await window.qrNotificationHandler.createQRForURL('https://mobile.nashop.store/');
+            console.log('QR Generation Result:', result);
+
+            if (result && result.success && result.qr_image) {
+                console.log('QR Code generated successfully:', result.qr_image);
+
+                // Force using fallback method for now to test
+                console.log('Using fallback manual QR display method (forced)');
+                
+                // Hide the video and show the QR code manually
+                qrVideo.style.display = 'none';
+                
+                // Create QR code image element
+                const qrImage = document.createElement('img');
+                qrImage.src = result.qr_image;
+                qrImage.alt = 'Generated QR Code for Nashop Mobile App';
+                qrImage.style.width = '100%';
+                qrImage.style.height = '100%';
+                qrImage.style.objectFit = 'contain';
+                qrImage.style.borderRadius = '12px';
+                qrImage.style.backgroundColor = 'white';
+                qrImage.style.padding = '10px';
+                qrImage.style.position = 'absolute';
+                qrImage.style.top = '0';
+                qrImage.style.left = '0';
+                qrImage.style.zIndex = '999';
+                qrImage.style.display = 'block';
+                qrImage.style.visibility = 'visible';
+                qrImage.style.opacity = '1';
+                
+                // Add the QR image to the video container
+                qrVideoContainer.appendChild(qrImage);
+                console.log('QR image added to container:', qrImage);
+                
+                // Add click event listener to QR image for scan simulation
+                qrImage.addEventListener('click', () => {
+                    console.log('QR image clicked - simulating scan');
+                    handleQRScan();
+                });
+                
+                // Add a visual indicator that the QR is scannable
+                qrImage.style.cursor = 'pointer';
+                qrImage.title = 'Click to simulate scan or scan with your phone';
+                
+                // Also try the QR notification handler method as backup
+                if (window.qrNotificationHandler && window.qrNotificationHandler.displayQRCode) {
+                    console.log('Also trying QR notification handler display method');
+                    window.qrNotificationHandler.displayQRCode(result.qr_image);
+                }
+                
+                // Set up scan detection callback (do this regardless of which display method is used)
+                if (window.qrNotificationHandler && !window.qrNotificationHandler.scanCallbackSet) {
+                    console.log('Setting up scan detection callback');
+                    window.qrNotificationHandler.onScanNotification((scanData) => {
+                        console.log('QR Code scanned! Playing video...', scanData);
+                        // Make sure we're calling the right function
+                setTimeout(() => {
+                            handleQRScan();
+                        }, 100);
+                    });
+                    
+                    // Mark that callback has been set to prevent duplicates
+                    window.qrNotificationHandler.scanCallbackSet = true;
+                }
+
+                // Create a "Generate New QR" button
+                const newQRBtn = document.createElement('button');
+                newQRBtn.innerHTML = `
+                    <svg style="width: 16px; height: 16px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
+                    </svg>
+                    Generate New QR
+                `;
+                newQRBtn.className = 'qr-generate-btn';
+                newQRBtn.style.marginTop = '1rem';
+                newQRBtn.onclick = resetQRDisplay;
+
+                // Add the new button to the container
+                qrVideoContainer.appendChild(newQRBtn);
+                
+                // Add a test scan button for debugging
+                const testScanBtn = document.createElement('button');
+                testScanBtn.innerHTML = `
+                    <svg style="width: 16px; height: 16px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+                    </svg>
+                    Test Scan (Debug)
+                `;
+                testScanBtn.className = 'qr-generate-btn';
+                testScanBtn.style.marginTop = '0.5rem';
+                testScanBtn.style.backgroundColor = 'rgba(34, 197, 94, 0.8)';
+                testScanBtn.onclick = () => {
+                    console.log('Test scan button clicked');
+                    handleQRScan();
+                };
+                
+                qrVideoContainer.appendChild(testScanBtn);
+                
+                // Add instructions text
+                const instructionsText = document.createElement('div');
+                instructionsText.innerHTML = `
+                    <p style="color: var(--text); font-size: 0.875rem; text-align: center; margin-top: 0.5rem; opacity: 0.8;">
+                        Click QR to simulate scan • Scan with phone to trigger video
+                    </p>
+                `;
+                qrVideoContainer.appendChild(instructionsText);
+                
+                // Add a simple test button to force hide QR
+                const forceHideBtn = document.createElement('button');
+                forceHideBtn.innerHTML = `
+                    <svg style="width: 16px; height: 16px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.878 9.878L3 3m6.878 6.878L21 21"></path>
+                    </svg>
+                    Force Hide QR
+                `;
+                forceHideBtn.className = 'qr-generate-btn';
+                forceHideBtn.style.marginTop = '0.5rem';
+                forceHideBtn.style.backgroundColor = 'rgba(239, 68, 68, 0.8)';
+                forceHideBtn.onclick = () => {
+                    console.log('Force hide button clicked');
+                    window.forceHideQR();
+                };
+                
+                qrVideoContainer.appendChild(forceHideBtn);
+
+                // Hide overlay completely and immediately
+                console.log('Hiding overlay:', qrOverlay);
+                qrOverlay.style.opacity = '0';
+                    qrOverlay.style.display = 'none';
+                qrOverlay.style.visibility = 'hidden';
+                qrOverlay.style.pointerEvents = 'none';
+                qrOverlay.style.zIndex = '-1';
+                
+                // Also hide the generate button specifically
+                const generateBtn = document.getElementById('generate-qr-btn');
+                if (generateBtn) {
+                    console.log('Hiding generate button:', generateBtn);
+                    generateBtn.style.display = 'none';
+                    generateBtn.style.visibility = 'hidden';
+                }
+                
+                console.log('QR image should now be visible with z-index 999');
+
+                // Show success notification
+                showQRNotification('QR Code generated! Scan to visit Nashop mobile app.', 'success');
+                
+                // Update status text
+                if (qrStatusText) {
+                    qrStatusText.textContent = 'QR Code ready to scan!';
+                }
+                if (qrStatus) {
+                    qrStatus.style.display = 'block';
+                }
+                
+                // Reset generation flag
+                isGeneratingQR = false;
+            } else {
+                console.error('QR generation failed or no data URL returned:', result);
+                // Try fallback QR generation
+                await generateFallbackQR();
+            }
+        } catch (error) {
+            console.error('Error generating QR:', error);
+            showQRNotification('Primary QR generation failed. Trying fallback method...', 'error');
+            
+            // Try fallback method
+            try {
+                await generateFallbackQR();
+                isGeneratingQR = false; // Reset flag on success
+            } catch (fallbackError) {
+                console.error('Fallback also failed:', fallbackError);
+                showQRNotification('Failed to generate QR code. Please try again.', 'error');
+
+            // Reset button
+            const generateBtn = document.getElementById('generate-qr-btn');
+            generateBtn.innerHTML = `
+                    <svg style="width: 16px; height: 16px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
+                </svg>
+                Generate QR Code
+            `;
+            generateBtn.disabled = false;
+                isGeneratingQR = false; // Reset flag on error
+            }
+        }
+    }
+
+    // Fallback QR generation using a simple QR API
+    async function generateFallbackQR() {
+        try {
+            const qrVideo = document.getElementById('qr-video');
+            const qrVideoContainer = document.querySelector('.qr-video-container');
+            const qrOverlay = document.getElementById('qr-generation-overlay');
+            const qrStatus = document.getElementById('qr-status');
+            const qrStatusText = document.getElementById('qr-status-text');
+
+            console.log('Using fallback QR generation...');
+
+            // Hide the video
+            qrVideo.style.display = 'none';
+            
+            // Create QR code using a simple QR API
+            const qrImage = document.createElement('img');
+            const qrUrl = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://mobile.nashop.store/`;
+            qrImage.src = qrUrl;
+            qrImage.alt = 'Generated QR Code for Nashop Mobile App';
+            qrImage.style.width = '100%';
+            qrImage.style.height = '100%';
+            qrImage.style.objectFit = 'contain';
+            qrImage.style.borderRadius = '12px';
+            qrImage.style.backgroundColor = 'white';
+            qrImage.style.padding = '10px';
+            
+            // Add the QR image to the video container
+            qrVideoContainer.appendChild(qrImage);
+
+            // Create a "Generate New QR" button
+            const newQRBtn = document.createElement('button');
+            newQRBtn.innerHTML = `
+                <svg style="width: 16px; height: 16px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
+                </svg>
+                Generate New QR
+            `;
+            newQRBtn.className = 'qr-generate-btn';
+            newQRBtn.style.marginTop = '1rem';
+            newQRBtn.onclick = resetQRDisplay;
+
+            // Add the new button to the container
+            qrVideoContainer.appendChild(newQRBtn);
+
+            // Hide overlay and show status
+            qrOverlay.style.opacity = '0';
+            setTimeout(() => {
+                qrOverlay.style.display = 'none';
+            }, 500);
+
+            // Show success notification
+            showQRNotification('QR Code generated using fallback method!', 'success');
+            
+            // Update status text
+            if (qrStatusText) {
+                qrStatusText.textContent = 'QR Code ready to scan!';
+            }
+            if (qrStatus) {
+                qrStatus.style.display = 'block';
+            }
+
+        } catch (error) {
+            console.error('Fallback QR generation also failed:', error);
+            showQRNotification('Failed to generate QR code. Please try again.', 'error');
+            
+            // Reset button
+            const generateBtn = document.getElementById('generate-qr-btn');
+            generateBtn.innerHTML = `
+                <svg style="width: 16px; height: 16px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
+                </svg>
+                Generate QR Code
+            `;
+            generateBtn.disabled = false;
+        }
+    }
+
+    // Function to handle QR code scan - play video and hide QR
+    let isHandlingScan = false; // Flag to prevent multiple scan handling
+    
+    function handleQRScan() {
+        if (isHandlingScan) {
+            console.log('Scan already being handled, ignoring duplicate');
+            return;
+        }
+        
+        isHandlingScan = true;
+        console.log('Handling QR scan - playing video and hiding QR code');
+        
+        // Reset generation flag in case it was stuck
+        isGeneratingQR = false;
+        
+        const qrVideo = document.getElementById('qr-video');
+        const qrVideoContainer = document.querySelector('.qr-video-container');
+        const qrOverlay = document.getElementById('qr-generation-overlay');
+        const qrStatus = document.getElementById('qr-status');
+        
+        // AGGRESSIVE QR REMOVAL - Remove ALL elements from container
+        console.log('Starting aggressive QR removal...');
+        
+        // Remove ALL images from the container
+        const allImages = qrVideoContainer.querySelectorAll('img');
+        console.log('Found images to remove:', allImages.length);
+        allImages.forEach((img, index) => {
+            console.log(`Removing image ${index}:`, img.alt || 'no alt');
+            img.remove();
+        });
+        
+        // Remove ALL buttons from the container
+        const allButtons = qrVideoContainer.querySelectorAll('button');
+        console.log('Found buttons to remove:', allButtons.length);
+        allButtons.forEach((btn, index) => {
+            console.log(`Removing button ${index}:`, btn.textContent || 'no text');
+            btn.remove();
+        });
+        
+        // Remove ALL divs with text content (instructions, etc.)
+        const allDivs = qrVideoContainer.querySelectorAll('div');
+        allDivs.forEach((div, index) => {
+            if (div.textContent && div.textContent.trim() && !div.contains(qrVideo)) {
+                console.log(`Removing div ${index}:`, div.textContent.trim());
+                div.remove();
+            }
+        });
+        
+        // Clear the container's innerHTML except for the video
+        const videoHTML = qrVideo.outerHTML;
+        qrVideoContainer.innerHTML = '';
+        qrVideoContainer.appendChild(qrVideo);
+        
+        console.log('QR container cleared, only video remains');
+        
+        // Show video and play it (with a small delay to ensure QR is hidden)
+        setTimeout(() => {
+            qrVideo.style.display = 'block';
+            qrVideo.style.opacity = '1';
+            qrVideo.style.visibility = 'visible';
+            qrVideo.style.zIndex = '999';
+            qrVideo.style.position = 'relative';
+            
+            // Reset video to beginning and play
+            qrVideo.currentTime = 0;
+            qrVideo.classList.remove('ended'); // Remove ended class for fresh start
+            qrVideo.play().then(() => {
+            console.log('Video started playing after QR scan');
+            
+            // Add visual effect to show scan was detected
+            qrVideoContainer.style.boxShadow = '0 0 20px rgba(0, 255, 0, 0.5)';
+            qrVideoContainer.style.animation = 'pulse 2s ease-in-out';
+            
+            setTimeout(() => {
+                qrVideoContainer.style.boxShadow = '';
+                qrVideoContainer.style.animation = '';
+            }, 2000);
+            
+            // Reset scan handling flag after video starts
+            setTimeout(() => {
+                isHandlingScan = false;
+            }, 1000);
+            
+            }).catch(error => {
+                console.error('Error playing video after scan:', error);
+                // Reset flag even on error
+                isHandlingScan = false;
+            });
+        }, 100); // Small delay to ensure QR elements are removed
+        
+        // Add event listener to keep video at last frame when it ends
+        qrVideo.addEventListener('ended', function() {
+            console.log('Video ended - keeping at last frame');
+            // Don't pause, just let it stay at the last frame
+            // The video will naturally stay at the last frame when it ends
+        });
+        
+        // Hide overlay and status
+        qrOverlay.style.display = 'flex';
+        qrOverlay.style.opacity = '1';
+        
+        if (qrStatus) {
+            qrStatus.style.display = 'none';
+        }
+        
+        // Show scan notification
+        showQRNotification('QR Code scanned! Video playing...', 'success');
+    }
+
+    // Function to reset QR display and show video again
+    function resetQRDisplay() {
+        const qrVideo = document.getElementById('qr-video');
+        const qrVideoContainer = document.querySelector('.qr-video-container');
+        const qrOverlay = document.getElementById('qr-generation-overlay');
+        const qrStatus = document.getElementById('qr-status');
+        const generateBtn = document.getElementById('generate-qr-btn');
+
+        // Use QR notification handler's hide method if available
+        if (window.qrNotificationHandler && window.qrNotificationHandler.hideQRCode) {
+            window.qrNotificationHandler.hideQRCode();
+        }
+
+        // Show video again
+        qrVideo.style.display = 'block';
+        qrVideo.style.opacity = '1';
+        
+        // Remove any existing QR images and buttons
+        const existingQRImage = qrVideoContainer.querySelector('img[alt*="QR Code"]');
+        const existingNewQRBtn = qrVideoContainer.querySelector('button[onclick="resetQRDisplay"]');
+        const testScanBtn = qrVideoContainer.querySelector('button[onclick*="handleQRScan"]');
+        const qrCodeImage = document.getElementById('qr-code-image');
+        
+        if (existingQRImage) {
+            existingQRImage.remove();
+        }
+        if (existingNewQRBtn) {
+            existingNewQRBtn.remove();
+        }
+        if (testScanBtn) {
+            testScanBtn.remove();
+        }
+        if (qrCodeImage) {
+            qrCodeImage.style.display = 'none';
+            qrCodeImage.style.opacity = '0';
+        }
+
+        // Show overlay again
+        qrOverlay.style.display = 'flex';
+        qrOverlay.style.opacity = '1';
+
+        // Reset button
+        generateBtn.innerHTML = `
+            <svg style="width: 16px; height: 16px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
+            </svg>
+            Generate QR Code
+        `;
+        generateBtn.disabled = false;
+
+        // Hide status
+        if (qrStatus) {
+            qrStatus.style.display = 'none';
+        }
+
+        showQRNotification('Ready to generate a new QR code!', 'info');
+    }
+
+    function showQRNotification(message, type = 'info') {
+        // Create notification element
+        const notification = document.createElement('div');
+        notification.className = `fixed top-4 left-1/2 transform -translate-x-1/2 px-6 py-3 rounded-lg shadow-lg z-50 transition-all duration-300 ${
+            type === 'success' ? 'bg-green-500' :
+            type === 'error' ? 'bg-red-500' : 'bg-blue-500'
+        } text-white`;
+
+        notification.innerHTML = `
+            <div class="flex items-center space-x-2">
+                <span>${message}</span>
+                <button onclick="this.parentElement.parentElement.remove()" class="ml-2 text-white hover:text-gray-200">
+                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                    </svg>
+                </button>
+            </div>
+        `;
+
+        document.body.appendChild(notification);
+
+        // Auto-remove after 5 seconds
+        setTimeout(() => {
+            if (notification.parentElement) {
+                notification.remove();
+            }
+        }, 5000);
+    }
+
+    // QR Server Configuration
+    window.QR_SERVER_URL = 'https://nourddinak.pythonanywhere.com';
+
+    // Global function to manually trigger scan detection (for testing)
+    window.triggerQRScan = function() {
+        console.log('Manual QR scan trigger called');
+        handleQRScan();
+    };
+    
+    // Global function to test QR generation
+    window.testQRGeneration = function() {
+        console.log('Testing QR generation...');
+        if (window.qrNotificationHandler) {
+            console.log('QR handler exists:', window.qrNotificationHandler);
+            generateQRForMobile();
+        } else {
+            console.error('QR handler not found');
+        }
+    };
+    
+    // Global function to force hide QR code
+    window.forceHideQR = function() {
+        console.log('Force hiding QR code...');
+        const qrVideoContainer = document.querySelector('.qr-video-container');
+        const qrVideo = document.getElementById('qr-video');
+        
+        if (qrVideoContainer) {
+            // Remove ALL images from the container
+            const allImages = qrVideoContainer.querySelectorAll('img');
+            console.log('Found images to remove:', allImages.length);
+            allImages.forEach((img, index) => {
+                console.log(`Removing image ${index}:`, img);
+                img.remove();
+            });
+            
+            // Remove ALL buttons
+            const allButtons = qrVideoContainer.querySelectorAll('button');
+            console.log('Found buttons to remove:', allButtons.length);
+            allButtons.forEach((btn, index) => {
+                console.log(`Removing button ${index}:`, btn);
+                btn.remove();
+            });
+            
+            // Show video
+            if (qrVideo) {
+                qrVideo.style.display = 'block';
+                qrVideo.style.opacity = '1';
+                qrVideo.style.visibility = 'visible';
+                qrVideo.style.zIndex = '999';
+                console.log('Video should now be visible');
+            }
+        }
+    };
+
+    // Initialize QR system when page loads
+    document.addEventListener('DOMContentLoaded', () => {
+        console.log('🎯 QR System: Page loaded, checking for QR buttons...');
+        
+        // Check if QR elements exist
+        const generateBtn = document.getElementById('generate-qr-btn');
+        const hideBtn = document.getElementById('hide-qr-btn');
+        
+        if (generateBtn) {
+            console.log('✅ QR System: Generate button found!');
+        } else {
+            console.error('❌ QR System: Generate button NOT found!');
+        }
+
+        // Wait for QR handler to initialize
+        setTimeout(() => {
+            if (window.qrNotificationHandler) {
+                console.log('✅ QR System: Notification handler initialized!');
+                window.qrNotificationHandler.onScanNotification((scanData) => {
+                    console.log('Custom scan handler triggered:', scanData);
+                    handleQRScan();
+                });
+            } else {
+                console.error('❌ QR System: Notification handler NOT initialized!');
+            }
+        }, 1000);
+        
+        // Set up video end event listener
+        const qrVideo = document.getElementById('qr-video');
+        if (qrVideo) {
+            qrVideo.addEventListener('ended', function() {
+                console.log('Video ended - keeping at last frame (static image)');
+                // Add class to indicate video has ended
+                this.classList.add('ended');
+                // Video will naturally stay at the last frame when it ends
+                // This creates a static image effect
+            });
+        }
+    });
+    
+    initApp();
+    </script>
+</body>
+</html>
