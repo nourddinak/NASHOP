@@ -567,9 +567,344 @@
             background: linear-gradient(90deg, var(--purple), var(--fuchsia), var(--cyan));
         }
         .feature-icon { margin-bottom: 1.5rem; font-size: 2.5rem; color: var(--accent); line-height: 1; }
+        
+        /* Enhanced 3D Icon Styling */
+        .icon-3d {
+            font-size: 4rem;
+            color: var(--text-bright);
+            filter: 
+                drop-shadow(0 6px 12px rgba(0, 0, 0, 0.4))
+                drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2))
+                drop-shadow(0 0 20px rgba(138, 43, 226, 0.3));
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            display: block;
+            transform-style: preserve-3d;
+        }
+        
+        .feature-card:hover .icon-3d {
+            transform: translateY(-8px) rotateY(15deg) rotateX(5deg) scale(1.1);
+            filter: 
+                drop-shadow(0 12px 24px rgba(0, 0, 0, 0.5))
+                drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3))
+                drop-shadow(0 0 30px rgba(0, 212, 255, 0.6));
+            color: var(--cyan);
+        }
+        
+        .feature-icon .icon-3d {
+            background: linear-gradient(45deg, 
+                #8a2be2, 
+                #00d4ff, 
+                #ff1493, 
+                #8a2be2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            background-size: 300% 300%;
+            animation: iconGradientShift 4s ease-in-out infinite;
+        }
+        
+        /* Individual icon animations */
+        .feature-card:nth-child(1) .icon-3d {
+            animation: iconGradientShift 4s ease-in-out infinite, gemPulse 2s ease-in-out infinite;
+        }
+        
+        .feature-card:nth-child(2) .icon-3d {
+            animation: iconGradientShift 4s ease-in-out infinite, zapShake 1.5s ease-in-out infinite;
+        }
+        
+        .feature-card:nth-child(3) .icon-3d {
+            animation: iconGradientShift 4s ease-in-out infinite, sparkleTwinkle 3s ease-in-out infinite;
+        }
+        
+        @keyframes iconGradientShift {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+        
+        @keyframes gemPulse {
+            0%, 100% {
+                transform: scale(1);
+                filter: brightness(1);
+            }
+            50% {
+                transform: scale(1.05);
+                filter: brightness(1.2);
+            }
+        }
+        
+        @keyframes zapShake {
+            0%, 100% {
+                transform: rotate(0deg);
+            }
+            25% {
+                transform: rotate(-2deg);
+            }
+            75% {
+                transform: rotate(2deg);
+            }
+        }
+        
+        @keyframes sparkleTwinkle {
+            0%, 100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+            50% {
+                opacity: 0.7;
+                transform: scale(1.1);
+            }
+        }
         .feature-card h3 { color: var(--text-bright); margin-bottom: 1rem; font-size: 1.5rem; }
         .feature-card p { line-height: 1.6; }
         .feature-card .token-highlight { background: linear-gradient(45deg, var(--fuchsia), var(--purple)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-weight: 700; }
+
+        /* --- TOKEN AIRDROP SECTION --- */
+        .airdrop-section {
+            background: #000000;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        
+        .airdrop-content {
+            position: relative;
+            z-index: 2;
+            padding: 6rem 0;
+        }
+        
+        .airdrop-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        
+        .airdrop-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: linear-gradient(45deg, var(--purple), var(--cyan));
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 2rem;
+            animation: badgePulse 2s ease-in-out infinite;
+        }
+        
+        .airdrop-icon {
+            width: 20px;
+            height: 20px;
+        }
+        
+        .airdrop-title {
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(45deg, var(--purple), var(--cyan), var(--fuchsia));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .airdrop-subtitle {
+            font-size: 1.5rem;
+            color: var(--text);
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+        
+        .airdrop-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+        
+        .airdrop-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        
+        .airdrop-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+        
+        .main-card {
+            grid-column: span 2;
+            background: linear-gradient(135deg, var(--purple), var(--cyan));
+            color: white;
+            border: none;
+        }
+        
+        .main-card:hover {
+            transform: translateY(-15px) scale(1.05);
+            box-shadow: 0 30px 60px rgba(138, 43, 226, 0.4);
+        }
+        
+        .card-glow {
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+            animation: cardGlow 3s ease-in-out infinite;
+        }
+        
+        .token-amount {
+            font-size: 4rem;
+            font-weight: 900;
+            line-height: 1;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .amount-number {
+            display: block;
+            font-size: 5rem;
+        }
+        
+        .amount-currency {
+            font-size: 2rem;
+            opacity: 0.8;
+        }
+        
+        .card-icon {
+            margin-bottom: 1.5rem;
+        }
+        
+        .card-icon .icon-3d {
+            font-size: 3rem;
+            color: var(--cyan);
+        }
+        
+        .airdrop-card h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--text-bright);
+        }
+        
+        .main-card h3 {
+            color: white;
+        }
+        
+        .airdrop-card p {
+            color: var(--text);
+            line-height: 1.6;
+        }
+        
+        .main-card p {
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        .airdrop-cta {
+            text-align: center;
+        }
+        
+        
+        .airdrop-btn {
+            position: relative;
+            background: linear-gradient(45deg, var(--purple), var(--cyan));
+            color: white;
+            border: none;
+            padding: 1.5rem 3rem;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            overflow: hidden;
+            text-decoration: none;
+        }
+        
+        .airdrop-btn:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 15px 30px rgba(138, 43, 226, 0.4);
+        }
+        
+        .btn-icon {
+            width: 24px;
+            height: 24px;
+        }
+        
+        .btn-glow {
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.6s ease;
+        }
+        
+        .airdrop-btn:hover .btn-glow {
+            left: 100%;
+        }
+        
+        
+        @keyframes airdropFloat {
+            0%, 100% {
+                transform: translateY(0px) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-20px) rotate(2deg);
+            }
+        }
+        
+        @keyframes badgePulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+        
+        @keyframes cardGlow {
+            0%, 100% {
+                opacity: 0.3;
+            }
+            50% {
+                opacity: 0.6;
+            }
+        }
+        
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .airdrop-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .main-card {
+                grid-column: span 1;
+            }
+        }
 
         /* --- BENTO GRID --- */
         .bento-grid { display: grid; grid-template-columns: repeat(4, 1fr); grid-auto-rows: 180px; gap: 1rem; }
@@ -587,6 +922,21 @@
         .bento-box.r2 { grid-row: span 2; }
         .bento-box h4 { color: var(--text-bright); font-size: 1.25rem; }
         .bento-box .bento-text { font-size: 1rem; }
+        
+        /* Video Bento Box Styling */
+        .video-bento {
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .video-bento video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 12px;
+        }
         
         /* --- TOKEN PRESALE SECTION --- */
         .presale-section { text-align: center; }
@@ -1250,7 +1600,7 @@
                     <p class="reveal-text"><span class="line">Every purchase on Nashop rewards you with</span><span class="line"> <span class="token-highlight">$DAN</span> tokens, creating a sustainable</span><span class="line"> ecosystem where customers become stakeholders</span><span class="line"> in the platform's success.</span></p>
                 </div>
                 <div class="about-image">
-                    <img src="https://i.postimg.cc/y8J3LMMt/about-visual.jpg" alt="Nashop Platform Visualization">
+                    <img src="https://ik.imagekit.io/nashop/category_GIVEWAYS/Google_AI_Studio_2025-09-14T17_40_00.537Z_9Uxsym8mH.png" alt="Nashop Platform Visualization">
                 </div>
             </div>
         </section>
@@ -1267,9 +1617,88 @@
             <div class="container">
                 <h2 style="font-size: 3rem; text-align:center; margin-bottom: 5rem;" class="reveal-text"><span class="line">Platform Features</span></h2>
                 <div class="features-grid">
-                    <div class="feature-card"><div class="feature-icon">💰</div><h3>Earn <span class="token-highlight">$DAN</span> Tokens</h3><p>Get rewarded with crypto tokens for every purchase. Build your digital wealth while you shop.</p></div>
-                    <div class="feature-card"><div class="feature-icon">🔗</div><h3>Decentralized Commerce</h3><p>Experience true ownership in a decentralized marketplace powered by blockchain technology.</p></div>
-                    <div class="feature-card"><div class="feature-icon">🎁</div><h3>Exclusive Perks</h3><p>Unlock VIP benefits, early access to products, and special discounts as a token holder.</p></div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i data-lucide="gem" class="icon-3d"></i>
+                        </div>
+                        <h3>Earn <span class="token-highlight">$DAN</span> Tokens</h3>
+                        <p>Get rewarded with crypto tokens for every purchase. Build your digital wealth while you shop.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i data-lucide="zap" class="icon-3d"></i>
+                        </div>
+                        <h3>Decentralized Commerce</h3>
+                        <p>Experience true ownership in a decentralized marketplace powered by blockchain technology.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i data-lucide="sparkles" class="icon-3d"></i>
+                        </div>
+                        <h3>Exclusive Perks</h3>
+                        <p>Unlock VIP benefits, early access to products, and special discounts as a token holder.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="token-airdrop" class="airdrop-section">
+            <div class="container">
+                <div class="airdrop-content">
+                    <div class="airdrop-header">
+                        <div class="airdrop-badge">
+                            <i data-lucide="gift" class="airdrop-icon"></i>
+                            <span>EXCLUSIVE AIRDROP</span>
+                        </div>
+                        <h2 class="airdrop-title reveal-text">
+                            <span class="line">100,000 $DAN TOKENS</span>
+                        </h2>
+                        <p class="airdrop-subtitle">Join the exclusive crypto airdrop of 2025 and claim your share of the future!</p>
+                    </div>
+                    
+                    <div class="airdrop-grid">
+                        <div class="airdrop-card main-card">
+                            <div class="card-glow"></div>
+                            <div class="token-amount">
+                                <span class="amount-number">100K</span>
+                                <span class="amount-currency">$DAN</span>
+                            </div>
+                            <h3>Total Airdrop Pool</h3>
+                            <p>Massive token distribution to early adopters and community members</p>
+                        </div>
+                        
+                        <div class="airdrop-card">
+                            <div class="card-icon">
+                                <i data-lucide="users" class="icon-3d"></i>
+                            </div>
+                            <h3>10,000 Winners</h3>
+                            <p>10 tokens per winner in our fair distribution system</p>
+                        </div>
+                        
+                        <div class="airdrop-card">
+                            <div class="card-icon">
+                                <i data-lucide="clock" class="icon-3d"></i>
+                            </div>
+                            <h3>Be The First</h3>
+                            <p>Be the first to get exclusive access - airdrop launches in 2026!</p>
+                        </div>
+                        
+                        <div class="airdrop-card">
+                            <div class="card-icon">
+                                <i data-lucide="users-2" class="icon-3d"></i>
+                            </div>
+                            <h3>Referral Bonuses</h3>
+                            <p>Earn extra tokens by referring friends and family members</p>
+                        </div>
+                    </div>
+                    
+                    <div class="airdrop-cta">
+                        <a href="https://airdrop.nashop.store" target="_blank" class="airdrop-btn">
+                            <i data-lucide="rocket" class="btn-icon"></i>
+                            <span>Claim Your Tokens Now</span>
+                            <div class="btn-glow"></div>
+                        </a>
+                    </div>
                 </div>
             </div>
         </section>
@@ -1280,7 +1709,11 @@
                 <div class="bento-grid">
                     <div class="bento-box r2 c2"><h4>1. Shop & Earn</h4><p class="bento-text">Browse our curated marketplace and make purchases just like any other e-commerce platform. With every transaction, you automatically earn <span class="token-highlight">$DAN</span> tokens that accumulate in your wallet.</p></div>
                     <div class="bento-box"><h4>2. Stake & Grow</h4><p class="bento-text">Stake your <span class="token-highlight">$DAN</span> tokens to earn additional rewards and unlock premium features on the platform.</p></div>
-                    <div class="bento-box" style="background-image: url('https://i.postimg.cc/tJnNGRzW/bento-visual.jpg'); background-size: cover;"></div>
+                    <div class="bento-box video-bento">
+                        <video autoplay muted loop playsinline>
+                            <source src="img/img.mp4" type="video/mp4">
+                        </video>
+                    </div>
                     <div class="bento-box"><h4>3. Exclusive Access</h4><p class="bento-text">Token holders get early access to new products, special discounts, and participate in platform governance decisions.</p></div>
                     <div class="bento-box"><h4>4. Community Rewards</h4><p class="bento-text">Join a thriving community of crypto-savvy shoppers and earn bonus rewards through referrals and community participation.</p></div>
                 </div>
