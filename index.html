@@ -110,21 +110,39 @@
             }
             
             .mobile-spline {
-                display: block !important;
+                display: none !important;
             }
             
-            #spline-bg-mobile {
+            /* Cool radial gradient pattern background for mobile */
+            .hero::before {
+                content: '';
+                position: absolute;
                 top: 0;
                 left: 0;
                 width: 100%;
-                height: 100vh;
-                min-height: 100vh;
-                object-fit: cover;
+                height: 100%;
+                background-image: 
+                    radial-gradient(black 55%, #0000),
+                    linear-gradient(
+                        135deg,
+                        #1a0033,
+                        #2d1b69,
+                        #4a148c,
+                        #6a1b9a,
+                        #8e24aa,
+                        #ab47bc,
+                        #ba68c8,
+                        #ce93d8
+                    );
+                background-size: 100% 0.5%, contain;
+                z-index: -1;
             }
             
             .hero {
                 min-height: 100vh;
                 padding-top: 0;
+                position: relative;
+                overflow: hidden;
             }
             
             .hero .fingerprint-container {
@@ -139,21 +157,39 @@
             }
             
             .mobile-spline {
-                display: block !important;
+                display: none !important;
             }
             
-            #spline-bg-mobile {
+            /* Cool radial gradient pattern background for mobile */
+            .hero::before {
+                content: '';
+                position: absolute;
                 top: 0;
                 left: 0;
                 width: 100%;
-                height: 100vh;
-                min-height: 100vh;
-                object-fit: cover;
+                height: 100%;
+                background-image: 
+                    radial-gradient(black 55%, #0000),
+                    linear-gradient(
+                        135deg,
+                        #1a0033,
+                        #2d1b69,
+                        #4a148c,
+                        #6a1b9a,
+                        #8e24aa,
+                        #ab47bc,
+                        #ba68c8,
+                        #ce93d8
+                    );
+                background-size: 100% 0.5%, contain;
+                z-index: -1;
             }
             
             .hero {
                 min-height: 100vh;
                 padding-top: 0;
+                position: relative;
+                overflow: hidden;
             }
             
             .hero .fingerprint-container {
@@ -238,6 +274,7 @@
         .spline-branding {
             display: none !important;
         }
+        
 
         main { padding-top: 10vh; }
         
