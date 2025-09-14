@@ -54,12 +54,16 @@
         .cursor-outline { position: fixed; top: 0; left: 0; width: 30px; height: 30px; border: 1px solid var(--accent); border-radius: 50%; pointer-events: none; transform: translate(-50%, -50%); z-index: 9999; transition: width 0.3s, height 0.3s, background-color 0.3s, transform 0.3s cubic-bezier(0.19, 1, 0.22, 1); }
         body.link-hovered .cursor-outline { background-color: hsla(188, 100%, 50%, 0.2); transform: translate(-50%, -50%) scale(1.5); }
         
-        /* --- DYNAMIC AURORA BG --- */
-        #aurora-bg { position: fixed; inset: 0; z-index: -2; opacity: 0.3; filter: blur(100px); }
-        .aurora-blob { position: absolute; border-radius: 50%; transition: width 4s, height 4s, top 4s, left 4s; }
-        .blob-1 { background: linear-gradient(45deg, var(--purple), var(--fuchsia)); }
-        .blob-2 { background: linear-gradient(45deg, var(--cyan), var(--accent)); }
-        .blob-3 { background: linear-gradient(45deg, var(--fuchsia), var(--cyan)); }
+        /* --- SPLINE BG --- */
+        #spline-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            border: none;
+        }
 
         main { padding-top: 10vh; }
         section { padding: 10rem 0; }
@@ -629,11 +633,7 @@
 </head>
 <body>
     <div class="preloader"><span class="preloader-counter">0</span></div>
-    <div id="aurora-bg">
-        <div class="aurora-blob blob-1"></div>
-        <div class="aurora-blob blob-2"></div>
-        <div class="aurora-blob blob-3"></div>
-    </div>
+    <iframe id="spline-bg" src='https://my.spline.design/claritystream-p1nU2Jx7zLZACIfE8ylf4c8s/' frameborder='0'></iframe>
     <div class="cursor-dot"></div>
     <div class="cursor-outline"></div>
 
@@ -659,17 +659,6 @@
                 <div class="fingerprint-energy-burst"></div>
             </div>
 
-            <h1 class="reveal-text">
-                <span class="line"><span class="highlight">NASHOP</span></span>
-            </h1>
-            <div class="subtitle reveal-text">
-                <span class="line">THE FUTURE OF</span>
-                <span class="line">DECENTRALIZED COMMERCE</span>
-            </div>
-            <p class="description reveal-text">
-                <span class="line">Step into the future of decentralized commerce. Earn <strong class="token-highlight">$DAN</strong> tokens,</span>
-                <span class="line">unlock exclusive perks, and own your digital shopping journey.</span>
-            </p>
             <div class="cta-buttons reveal-text">
                 <a href="#features" class="cta-btn primary">
                     <span>Explore Features</span>
@@ -1044,26 +1033,8 @@
             el.addEventListener('mouseleave', () => document.body.classList.remove('link-hovered'));
         });
         
-        // --- AURORA BACKGROUND ---
-        const blob1 = document.querySelector(".blob-1");
-        const blob2 = document.querySelector(".blob-2");
-        const blob3 = document.querySelector(".blob-3");
-        setInterval(() => {
-            blob1.style.width = Math.floor(Math.random() * 300 + 400) + 'px';
-            blob1.style.height = Math.floor(Math.random() * 300 + 400) + 'px';
-            blob1.style.top = Math.floor(Math.random() * 80) + '%';
-            blob1.style.left = Math.floor(Math.random() * 80) + '%';
-
-            blob2.style.width = Math.floor(Math.random() * 300 + 400) + 'px';
-            blob2.style.height = Math.floor(Math.random() * 300 + 400) + 'px';
-            blob2.style.top = Math.floor(Math.random() * 80) + '%';
-            blob2.style.left = Math.floor(Math.random() * 80) + '%';
-
-            blob3.style.width = Math.floor(Math.random() * 250 + 350) + 'px';
-            blob3.style.height = Math.floor(Math.random() * 250 + 350) + 'px';
-            blob3.style.top = Math.floor(Math.random() * 80) + '%';
-            blob3.style.left = Math.floor(Math.random() * 80) + '%';
-        }, 4000);
+        // --- SPLINE BACKGROUND ---
+        // The spline background is an iframe, so no JS is needed here.
     }
     
     // QR Code Helper Functions
