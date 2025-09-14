@@ -55,7 +55,7 @@
         body.link-hovered .cursor-outline { background-color: hsla(188, 100%, 50%, 0.2); transform: translate(-50%, -50%) scale(1.5); }
         
         /* --- SPLINE BG (Hero Section) --- */
-        #spline-bg {
+        #spline-bg, #spline-bg-mobile {
             position: absolute;
             top: 0;
             left: 0;
@@ -63,9 +63,190 @@
             height: 100%;
             z-index: -1;
             border: none;
+            margin: 0;
+            padding: 0;
+            display: block;
+        }
+        
+        /* Ensure Spline viewer fills container properly */
+        spline-viewer {
+            display: block;
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
+        
+        /* Universal Spline positioning for all screen sizes */
+        #spline-bg, #spline-bg-mobile {
+            position: absolute !important;
+            top: 0 !important;
+            left: 0 !important;
+            width: 100% !important;
+            height: 100% !important;
+            z-index: -1 !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            border: none !important;
+        }
+        
+        /* Default: Desktop Spline visible, Mobile hidden */
+        .desktop-spline {
+            display: block;
+        }
+        
+        .mobile-spline {
+            display: none;
+        }
+        
+        /* Extra Small Mobile (320px - 480px) */
+        @media (max-width: 480px) {
+            .desktop-spline {
+                display: none !important;
+            }
+            
+            .mobile-spline {
+                display: block !important;
+            }
+            
+            #spline-bg-mobile {
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100vh;
+                min-height: 100vh;
+                object-fit: cover;
+            }
+            
+            .hero {
+                min-height: 100vh;
+                padding-top: 0;
+            }
+            
+            .hero .fingerprint-container {
+                margin-top: 1.5rem;
+            }
+        }
+        
+        /* Small Mobile (481px - 768px) */
+        @media (min-width: 481px) and (max-width: 768px) {
+            .desktop-spline {
+                display: none !important;
+            }
+            
+            .mobile-spline {
+                display: block !important;
+            }
+            
+            #spline-bg-mobile {
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100vh;
+                min-height: 100vh;
+                object-fit: cover;
+            }
+            
+            .hero {
+                min-height: 100vh;
+                padding-top: 0;
+            }
+            
+            .hero .fingerprint-container {
+                margin-top: 2rem;
+            }
+        }
+        
+        /* Tablet Portrait (769px - 1024px) */
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .desktop-spline {
+                display: block !important;
+            }
+            
+            .mobile-spline {
+                display: none !important;
+            }
+            
+            #spline-bg {
+                height: 100vh;
+                min-height: 100vh;
+            }
+            
+            .hero {
+                min-height: 100vh;
+            }
+        }
+        
+        /* Tablet Landscape & Small Desktop (1025px - 1440px) */
+        @media (min-width: 1025px) and (max-width: 1440px) {
+            .desktop-spline {
+                display: block !important;
+            }
+            
+            .mobile-spline {
+                display: none !important;
+            }
+            
+            #spline-bg {
+                height: 100vh;
+                min-height: 100vh;
+            }
+            
+            .hero {
+                min-height: 100vh;
+            }
+        }
+        
+        /* Large Desktop (1441px+) */
+        @media (min-width: 1441px) {
+            .desktop-spline {
+                display: block !important;
+            }
+            
+            .mobile-spline {
+                display: none !important;
+            }
+            
+            #spline-bg {
+                height: 100vh;
+                min-height: 100vh;
+            }
+            
+            .hero {
+                min-height: 100vh;
+            }
+        }
+        
+        /* Hide Spline "Built with Spline" badge for both viewers */
+        #spline-bg::after,
+        #spline-bg-mobile::after {
+            display: none !important;
+        }
+        
+        /* Alternative method to hide Spline branding */
+        spline-viewer::part(attribution) {
+            display: none !important;
+        }
+        
+        /* Hide any Spline branding elements */
+        [data-spline-attribution],
+        .spline-attribution,
+        .spline-branding {
+            display: none !important;
         }
 
         main { padding-top: 10vh; }
+        
+        /* Mobile main adjustment */
+        @media (max-width: 768px) {
+            main { 
+                padding-top: 0; 
+            }
+        }
         section { padding: 10rem 0; }
         .container { width: 90%; max-width: 1400px; margin: 0 auto; }
         
@@ -189,6 +370,127 @@
         .presale-summary {
             margin-top: 2rem;
             font-size: 1.2rem;
+        }
+
+        /* Mobile Presale Cards */
+        .mobile-presale-cards {
+            display: none;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .presale-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .presale-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px var(--glow-color);
+        }
+
+        .presale-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--purple), var(--fuchsia), var(--cyan));
+        }
+
+        .presale-card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .presale-card-header h3 {
+            margin: 0;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .presale-badge {
+            background: linear-gradient(45deg, var(--purple), var(--fuchsia));
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .total-badge {
+            background: linear-gradient(45deg, var(--cyan), var(--accent));
+        }
+
+        .presale-card-content {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .presale-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .presale-row:last-child {
+            border-bottom: none;
+        }
+
+        .presale-label {
+            color: var(--text);
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .presale-value {
+            color: var(--text-bright);
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        .total-card {
+            background: linear-gradient(135deg, rgba(168, 85, 247, 0.1), rgba(0, 221, 255, 0.1));
+            border-color: rgba(168, 85, 247, 0.3);
+        }
+
+        .total-card::before {
+            background: linear-gradient(90deg, var(--cyan), var(--accent), var(--purple));
+        }
+
+        /* Responsive Behavior */
+        @media (max-width: 768px) {
+            .desktop-table {
+                display: none;
+            }
+            
+            .mobile-presale-cards {
+                display: flex;
+                flex-direction: column;
+            }
+            
+            .presale-card {
+                margin-bottom: 1rem;
+            }
+        }
+
+        @media (min-width: 769px) {
+            .mobile-presale-cards {
+                display: none;
+            }
         }
 
         /* --- UTILITY CLASSES --- */
@@ -639,7 +941,10 @@
     <main>
         <section class="hero">
             <script type="module" src="https://unpkg.com/@splinetool/viewer@1.10.57/build/spline-viewer.js"></script>
-            <spline-viewer id="spline-bg" url="https://prod.spline.design/9MpkcyXlmcg6KaaD/scene.splinecode"></spline-viewer>
+            <!-- Desktop Spline Background -->
+            <spline-viewer id="spline-bg" class="desktop-spline" url="https://prod.spline.design/9MpkcyXlmcg6KaaD/scene.splinecode"></spline-viewer>
+            <!-- Mobile Spline Background -->
+            <spline-viewer id="spline-bg-mobile" class="mobile-spline" url="https://prod.spline.design/Jsk8oZEsxr9JlVVY/scene.splinecode"></spline-viewer>
             <!-- Interactive Fingerprint Container -->
             <div class="fingerprint-container">
                 <!-- Enhanced Background Glow -->
@@ -729,7 +1034,8 @@
                     <span class="line">ensure a gradual and stable launch.</span>
                 </p>
 
-                <table class="presale-table">
+                <!-- Desktop Table -->
+                <table class="presale-table desktop-table">
                     <thead>
                         <tr>
                             <th>Phase</th>
@@ -765,6 +1071,93 @@
                         </tr>
                     </tbody>
                 </table>
+
+                <!-- Mobile Cards -->
+                <div class="mobile-presale-cards">
+                    <div class="presale-card">
+                        <div class="presale-card-header">
+                            <h3 class="phase-highlight">Phase 1</h3>
+                            <div class="presale-badge">Early Bird</div>
+                        </div>
+                        <div class="presale-card-content">
+                            <div class="presale-row">
+                                <span class="presale-label">Tokens (DAN)</span>
+                                <span class="presale-value">400,000</span>
+                            </div>
+                            <div class="presale-row">
+                                <span class="presale-label">Price per DAN (POL)</span>
+                                <span class="presale-value price-highlight">0.5</span>
+                            </div>
+                            <div class="presale-row">
+                                <span class="presale-label">Total Value (POL)</span>
+                                <span class="presale-value">200,000</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="presale-card">
+                        <div class="presale-card-header">
+                            <h3 class="phase-highlight">Phase 2</h3>
+                            <div class="presale-badge">Popular</div>
+                        </div>
+                        <div class="presale-card-content">
+                            <div class="presale-row">
+                                <span class="presale-label">Tokens (DAN)</span>
+                                <span class="presale-value">350,000</span>
+                            </div>
+                            <div class="presale-row">
+                                <span class="presale-label">Price per DAN (POL)</span>
+                                <span class="presale-value price-highlight">1.5</span>
+                            </div>
+                            <div class="presale-row">
+                                <span class="presale-label">Total Value (POL)</span>
+                                <span class="presale-value">525,000</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="presale-card">
+                        <div class="presale-card-header">
+                            <h3 class="phase-highlight">Phase 3</h3>
+                            <div class="presale-badge">Final</div>
+                        </div>
+                        <div class="presale-card-content">
+                            <div class="presale-row">
+                                <span class="presale-label">Tokens (DAN)</span>
+                                <span class="presale-value">250,000</span>
+                            </div>
+                            <div class="presale-row">
+                                <span class="presale-label">Price per DAN (POL)</span>
+                                <span class="presale-value price-highlight">2.0</span>
+                            </div>
+                            <div class="presale-row">
+                                <span class="presale-label">Total Value (POL)</span>
+                                <span class="presale-value">500,000</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="presale-card total-card">
+                        <div class="presale-card-header">
+                            <h3 class="phase-highlight">Total</h3>
+                            <div class="presale-badge total-badge">Summary</div>
+                        </div>
+                        <div class="presale-card-content">
+                            <div class="presale-row">
+                                <span class="presale-label">Total Tokens (DAN)</span>
+                                <span class="presale-value phase-highlight"><strong>1,000,000</strong></span>
+                            </div>
+                            <div class="presale-row">
+                                <span class="presale-label">Average Price</span>
+                                <span class="presale-value price-highlight"><strong>1.225 POL</strong></span>
+                            </div>
+                            <div class="presale-row">
+                                <span class="presale-label">Total Value (POL)</span>
+                                <span class="presale-value phase-highlight"><strong>1,225,000</strong></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
