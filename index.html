@@ -54,14 +54,14 @@
         .cursor-outline { position: fixed; top: 0; left: 0; width: 30px; height: 30px; border: 1px solid var(--accent); border-radius: 50%; pointer-events: none; transform: translate(-50%, -50%); z-index: 9999; transition: width 0.3s, height 0.3s, background-color 0.3s, transform 0.3s cubic-bezier(0.19, 1, 0.22, 1); }
         body.link-hovered .cursor-outline { background-color: hsla(188, 100%, 50%, 0.2); transform: translate(-50%, -50%) scale(1.5); }
         
-        /* --- SPLINE BG --- */
+        /* --- SPLINE BG (Hero Section) --- */
         #spline-bg {
-            position: fixed;
+            position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            z-index: -2;
+            z-index: -1;
             border: none;
         }
 
@@ -74,7 +74,7 @@
         .line { overflow: hidden; }
 
         /* --- HERO --- */
-        .hero { min-height: 90vh; text-align: center; display: flex; flex-direction: column; justify-content: center; align-items: center; }
+        .hero { min-height: 90vh; text-align: center; display: flex; flex-direction: column; justify-content: center; align-items: center; position: relative; overflow: hidden; }
         .hero h1 { font-size: clamp(4rem, 12vw, 10rem); font-weight: 900; line-height: 0.9; letter-spacing: -0.05em; color: var(--text-bright); margin-bottom: 2rem; }
         .hero .highlight { background: linear-gradient(45deg, var(--fuchsia), var(--cyan)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
         .hero .subtitle { font-size: clamp(1.5rem, 4vw, 3rem); font-weight: 600; margin-bottom: 3rem; background: linear-gradient(45deg, var(--purple), var(--cyan)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
@@ -633,12 +633,12 @@
 </head>
 <body>
     <div class="preloader"><span class="preloader-counter">0</span></div>
-    <iframe id="spline-bg" src='https://my.spline.design/claritystream-p1nU2Jx7zLZACIfE8ylf4c8s/' frameborder='0'></iframe>
     <div class="cursor-dot"></div>
     <div class="cursor-outline"></div>
 
     <main>
         <section class="hero">
+            <iframe id="spline-bg" src='https://my.spline.design/claritystream-p1nU2Jx7zLZACIfE8ylf4c8s/' frameborder='0'></iframe>
             <!-- Interactive Fingerprint Container -->
             <div class="fingerprint-container">
                 <!-- Enhanced Background Glow -->
@@ -1033,8 +1033,6 @@
             el.addEventListener('mouseleave', () => document.body.classList.remove('link-hovered'));
         });
         
-        // --- SPLINE BACKGROUND ---
-        // The spline background is an iframe, so no JS is needed here.
     }
     
     // QR Code Helper Functions
