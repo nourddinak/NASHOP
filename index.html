@@ -42,7 +42,8 @@
 
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
         html { scroll-behavior: smooth; }
-        body { font-family: 'Inter', sans-serif; background-color: var(--background); color: var(--text); overflow-x: hidden; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background-color: var(--background); color: var(--text); overflow-x: hidden; margin: 0; padding: 0; }
         
         /* --- PRELOADER --- */
         .preloader { position: fixed; inset: 0; background-color: var(--background); display: flex; z-index: 10000; transition: opacity 1s ease-in-out; }
@@ -103,6 +104,16 @@
             display: none;
         }
         
+        /* Mobile Hero Text - Hidden on desktop */
+        .hero-text-mobile {
+            display: none;
+        }
+        
+        /* Mobile Buttons - Hidden on desktop */
+        .hero .cta-buttons {
+            display: none;
+        }
+        
         /* Extra Small Mobile (320px - 480px) */
         @media (max-width: 480px) {
             .desktop-spline {
@@ -146,7 +157,114 @@
             }
             
             .hero .fingerprint-container {
-                margin-top: 1.5rem;
+                margin-top: 25rem;
+                position: relative;
+                z-index: 5;
+            }
+            
+            /* Mobile Button Styling */
+            .hero .cta-buttons {
+                margin-top: 2rem;
+                display: flex;
+                flex-direction: column;
+                gap: 1rem;
+                align-items: center;
+                width: 100%;
+                max-width: 300px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            
+            .hero .cta-buttons .btn {
+                width: 100%;
+                padding: 0.75rem 1.5rem;
+                font-size: 0.9rem;
+                border-radius: 8px;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+                font-weight: 500;
+                transition: all 0.3s ease;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 0.5rem;
+            }
+            
+            .hero .cta-buttons .btn:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            }
+            
+            /* Override desktop button styles for mobile */
+            .hero .cta-buttons .cta-btn {
+                width: 100% !important;
+                max-width: 300px !important;
+                padding: 0.75rem 1.5rem !important;
+                font-size: 0.9rem !important;
+                border-radius: 8px !important;
+                text-transform: uppercase !important;
+                letter-spacing: 1px !important;
+                font-weight: 500 !important;
+                margin: 0 !important;
+            }
+            
+            /* Show Mobile Hero Text */
+            .hero-text-mobile {
+                display: block;
+            }
+            
+            /* Show Mobile Buttons */
+            .hero .cta-buttons {
+                display: flex;
+            }
+            
+            /* Mobile Hero Text */
+            .hero-text-mobile {
+                position: absolute;
+                top: 8%;
+                left: 50%;
+                transform: translateX(-50%);
+                text-align: center;
+                z-index: 10;
+                width: 90%;
+                max-width: 600px;
+            }
+            
+            .hero-title-mobile {
+                font-size: 2.5rem;
+                font-weight: 300;
+                line-height: 1.2;
+                margin-bottom: 1rem;
+                background: linear-gradient(90deg, 
+                    #00d4ff 0%, 
+                    #ffffff 50%, 
+                    #ce93d8 100%);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+                text-transform: uppercase;
+                letter-spacing: 2px;
+            }
+            
+            .hero-subtitle-mobile {
+                font-size: 1rem;
+                font-weight: 300;
+                color: #ce93d8;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+                margin-bottom: 2rem;
+            }
+            
+            .hero-indicator-mobile {
+                position: absolute;
+                top: 20px;
+                left: 20px;
+                width: 12px;
+                height: 12px;
+                border: 2px solid #00d4ff;
+                border-radius: 50%;
+                background: #00d4ff;
+                z-index: 10;
             }
         }
         
@@ -193,7 +311,55 @@
             }
             
             .hero .fingerprint-container {
+                margin-top: 25rem;
+                position: relative;
+                z-index: 5;
+            }
+            
+            /* Mobile Button Styling */
+            .hero .cta-buttons {
                 margin-top: 2rem;
+                display: flex;
+                flex-direction: column;
+                gap: 1rem;
+                align-items: center;
+                width: 100%;
+                max-width: 300px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            
+            .hero .cta-buttons .btn {
+                width: 100%;
+                padding: 0.75rem 1.5rem;
+                font-size: 0.9rem;
+                border-radius: 8px;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+                font-weight: 500;
+                transition: all 0.3s ease;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 0.5rem;
+            }
+            
+            .hero .cta-buttons .btn:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            }
+            
+            /* Override desktop button styles for mobile */
+            .hero .cta-buttons .cta-btn {
+                width: 100% !important;
+                max-width: 300px !important;
+                padding: 0.75rem 1.5rem !important;
+                font-size: 0.9rem !important;
+                border-radius: 8px !important;
+                text-transform: uppercase !important;
+                letter-spacing: 1px !important;
+                font-weight: 500 !important;
+                margin: 0 !important;
             }
         }
         
@@ -214,6 +380,19 @@
             
             .hero {
                 min-height: 100vh;
+                justify-content: flex-end;
+                padding-bottom: 5rem;
+            }
+            
+            /* Desktop fingerprint and buttons positioning */
+            .hero .fingerprint-container {
+                margin-top: 0;
+                margin-bottom: 2rem;
+            }
+            
+            .hero .cta-buttons {
+                margin-top: 2rem;
+                margin-bottom: 0;
             }
         }
         
@@ -234,6 +413,19 @@
             
             .hero {
                 min-height: 100vh;
+                justify-content: flex-end;
+                padding-bottom: 5rem;
+            }
+            
+            /* Desktop fingerprint and buttons positioning */
+            .hero .fingerprint-container {
+                margin-top: 0;
+                margin-bottom: 2rem;
+            }
+            
+            .hero .cta-buttons {
+                margin-top: 2rem;
+                margin-bottom: 0;
             }
         }
         
@@ -254,6 +446,19 @@
             
             .hero {
                 min-height: 100vh;
+                justify-content: flex-end;
+                padding-bottom: 5rem;
+            }
+            
+            /* Desktop fingerprint and buttons positioning */
+            .hero .fingerprint-container {
+                margin-top: 0;
+                margin-bottom: 2rem;
+            }
+            
+            .hero .cta-buttons {
+                margin-top: 2rem;
+                margin-bottom: 0;
             }
         }
         
@@ -276,7 +481,7 @@
         }
         
 
-        main { padding-top: 10vh; }
+        main { padding-top: 0; }
         
         /* Mobile main adjustment */
         @media (max-width: 768px) {
@@ -292,7 +497,19 @@
         .line { overflow: hidden; }
 
         /* --- HERO --- */
-        .hero { min-height: 90vh; text-align: center; display: flex; flex-direction: column; justify-content: center; align-items: center; position: relative; overflow: hidden; }
+        .hero { 
+            min-height: 100vh; 
+            text-align: center; 
+            display: flex; 
+            flex-direction: column; 
+            justify-content: flex-end; 
+            align-items: center; 
+            position: relative; 
+            overflow: hidden; 
+            padding-top: 0;
+            margin-top: 0;
+            padding-bottom: 5rem;
+        }
         .hero h1 { font-size: clamp(4rem, 12vw, 10rem); font-weight: 900; line-height: 0.9; letter-spacing: -0.05em; color: var(--text-bright); margin-bottom: 2rem; }
         .hero .highlight { background: linear-gradient(45deg, var(--fuchsia), var(--cyan)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
         .hero .subtitle { font-size: clamp(1.5rem, 4vw, 3rem); font-weight: 600; margin-bottom: 3rem; background: linear-gradient(45deg, var(--purple), var(--cyan)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
@@ -982,6 +1199,14 @@
             <spline-viewer id="spline-bg" class="desktop-spline" url="https://prod.spline.design/9MpkcyXlmcg6KaaD/scene.splinecode"></spline-viewer>
             <!-- Mobile Spline Background -->
             <spline-viewer id="spline-bg-mobile" class="mobile-spline" url="https://prod.spline.design/Jsk8oZEsxr9JlVVY/scene.splinecode"></spline-viewer>
+            
+            <!-- Mobile Hero Text -->
+            <div class="hero-text-mobile">
+                <div class="hero-indicator-mobile"></div>
+                <h1 class="hero-title-mobile">TURN UR CASHBACK TO CRYPTO</h1>
+                <p class="hero-subtitle-mobile">Welcome to NaShop — Your Gateway to Web3 Innovation</p>
+            </div>
+            
             <!-- Interactive Fingerprint Container -->
             <div class="fingerprint-container">
                 <!-- Enhanced Background Glow -->
